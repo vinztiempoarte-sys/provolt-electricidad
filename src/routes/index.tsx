@@ -28,13 +28,13 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const { company, services, projects, testimonials } = Route.useLoaderData();
+  const { company, services, servicesTotal, projects, testimonials } = Route.useLoaderData();
   return (
     <div className="min-h-screen bg-canvas text-text">
       <Header />
       <main>
         <Hero company={company} />
-        <TrustStrip foundedYear={company.founded_year} servicesCount={services.length} />
+        <TrustStrip foundedYear={company.founded_year} servicesCount={servicesTotal} />
         <FeaturedServices services={services} />
         {projects.length > 0 ? <FeaturedProjects projects={projects} /> : null}
         {testimonials.length > 0 ? <Testimonials testimonials={testimonials} /> : null}
