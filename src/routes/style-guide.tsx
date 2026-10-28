@@ -1,0 +1,210 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Zap } from "lucide-react";
+import { Logo } from "@/components/site/Logo";
+
+/** Página interna de verificación visual. No enlazada en la navegación pública. */
+export const Route = createFileRoute("/style-guide")({
+  head: () => ({
+    meta: [{ title: "Guía de estilo | Provolt Electricidad" }, { name: "robots", content: "noindex, nofollow" }],
+  }),
+  component: StyleGuide,
+});
+
+const COLORS = [
+  { name: "Morado (marca)", token: "--provolt-blue", hex: "#4430A1" },
+  { name: "Morado de estado", token: "--provolt-logo-accent", hex: "#8E7EF0" },
+  { name: "Gris (marca)", token: "--provolt-gray", hex: "#5F5F68" },
+  { name: "Amarillo (marca)", token: "--provolt-yellow", hex: "#F2BA02" },
+  { name: "Fondo oscuro", token: "--provolt-bg", hex: "#14122B" },
+  { name: "Superficie oscura", token: "--provolt-surface", hex: "#1C1936" },
+  { name: "Borde oscuro", token: "--provolt-border", hex: "#332E5C" },
+  { name: "Texto claro", token: "--provolt-text", hex: "#F7F6FB" },
+  { name: "Texto secundario", token: "--provolt-text-muted", hex: "#B3AFCB" },
+  { name: "Éxito", token: "--provolt-success", hex: "#00C853" },
+  { name: "Peligro", token: "--provolt-danger", hex: "#FF3B5C" },
+];
+
+/** Roles de los acentos en uso real (ver cabecera de src/styles.css). */
+const ACCENTS = [
+  {
+    name: "Morado de marca",
+    token: "--provolt-blue",
+    hex: "#4430A1",
+    use: "Botones primarios, CTA, botón de llamada y acento de las secciones claras.",
+  },
+  {
+    name: "Morado de estado",
+    token: "--provolt-logo-accent",
+    hex: "#8E7EF0",
+    use: "Badges «nuevo» y «completada», resaltado en tiempo real, gráficas y foco.",
+  },
+  {
+    name: "Amarillo",
+    token: "--provolt-yellow",
+    hex: "#F2BA02",
+    use: "Acento del tema oscuro, badges ámbar y estados pendiente / en proceso.",
+  },
+];
+
+const RADII = [
+  { name: "sm", cls: "rounded-sm", value: "6px" },
+  { name: "md", cls: "rounded-md", value: "12px" },
+  { name: "lg", cls: "rounded-lg", value: "20px" },
+  { name: "full", cls: "rounded-full", value: "999px" },
+];
+
+function Block({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="border-t border-line py-12">
+      <h2 className="font-mono text-xs text-electric">{title}</h2>
+      <div className="mt-6">{children}</div>
+    </section>
+  );
+}
+
+function StyleGuide() {
+  return (
+    <div className="bg-blueprint min-h-screen text-text">
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+        <Logo className="text-3xl" />
+        <h1 className="mt-6 text-4xl font-bold">Guía de estilo</h1>
+        <p className="mt-3 max-w-xl text-text-muted">
+          Verificación visual de los tokens con la paleta del logo Provolt. Uso interno.
+        </p>
+
+        <Block title="Paleta">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {COLORS.map((c) => (
+              <div key={c.token} className="card-tech overflow-hidden">
+                <div
+                  className="h-20 border-b border-line"
+                  style={{ background: `var(${c.token})` }}
+                />
+                <div className="p-3">
+                  <p className="text-sm font-medium">{c.name}</p>
+                  <p className="mt-1 font-mono text-xs text-text-muted">{c.hex}</p>
+                  <p className="font-mono text-[0.625rem] text-text-muted">{c.token}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Block>
+
+        <Block title="Acentos vigentes">
+          <p className="max-w-3xl text-sm text-text-muted">
+            Formalizado en la Fase 9. El cian <span className="font-mono">#00D9FF</span> de la Fase
+            1 ya no se usa. Fuente única: cabecera de{" "}
+            <span className="font-mono">src/styles.css</span>.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {ACCENTS.map((a) => (
+              <div key={a.token} className="card-tech flex gap-4 p-4">
+                <span
+                  className="h-12 w-12 shrink-0 rounded-md border border-line"
+                  style={{ background: `var(${a.token})` }}
+                  aria-hidden="true"
+                />
+                <div>
+                  <p className="text-sm font-medium">
+                    {a.name} · <span className="font-mono">{a.hex}</span>
+                  </p>
+                  <p className="font-mono text-[0.625rem] text-text-muted">{a.token}</p>
+                  <p className="mt-1 text-xs text-text-muted">{a.use}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Block>
+
+        <Block title="Tipografía">
+          <div className="space-y-6">
+            <div>
+              <p className="font-mono text-xs text-text-muted">Space Grotesk 700 · H1</p>
+              <p className="font-display text-5xl font-bold">Energía que conecta</p>
+            </div>
+            <div>
+              <p className="font-mono text-xs text-text-muted">Space Grotesk 600 · H2</p>
+              <p className="font-display text-3xl font-semibold">Servicios destacados</p>
+            </div>
+            <div>
+              <p className="font-mono text-xs text-text-muted">Inter 400 / 500 · Body</p>
+              <p className="max-w-2xl text-base text-text-muted">
+                Proyectos e instalaciones de baja tensión para vivienda, comercio e industria con
+                máxima garantía normativa.
+              </p>
+              <p className="mt-2 text-base font-medium">Texto de cuerpo en peso 500.</p>
+            </div>
+            <div>
+              <p className="font-mono text-xs text-text-muted">JetBrains Mono · Datos</p>
+              <p className="font-mono text-2xl text-electric">250 kW · 90 kWp · CIE</p>
+            </div>
+          </div>
+        </Block>
+
+        <Block title="Botones">
+          <div className="flex flex-wrap items-center gap-4">
+            <button type="button" className="btn-primary px-7 py-3.5">
+              Solicitar consulta
+            </button>
+            <button type="button" className="btn-secondary px-7 py-3.5">
+              Ver Proyectos
+            </button>
+            <button type="button" className="btn-accent px-7 py-3.5">
+              Contactar ahora
+            </button>
+            <span className="badge-amber">Industrial</span>
+          </div>
+        </Block>
+
+        <Block title="Tarjetas">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="card-tech p-6">
+              <p className="font-display font-semibold">Tarjeta estática</p>
+              <p className="mt-2 text-sm text-text-muted">Superficie + borde + elevación.</p>
+            </div>
+            <div className="card-tech card-tech-interactive p-6">
+              <Zap className="h-6 w-6 text-electric" />
+              <p className="mt-3 font-display font-semibold">Tarjeta interactiva</p>
+              <p className="mt-2 text-sm text-text-muted">Pasa el ratón: scale + brillo morado.</p>
+            </div>
+            <div className="rounded-md border border-line bg-surface-elevated p-6 shadow-elevated">
+              <p className="font-display font-semibold">Superficie elevada</p>
+              <p className="mt-2 text-sm text-text-muted">Para modales y popovers.</p>
+            </div>
+          </div>
+        </Block>
+
+        <Block title="Sección clara (.theme-light)">
+          <div className="theme-light rounded-lg bg-canvas p-8">
+            <Logo className="text-2xl" />
+            <p className="mt-4 font-display text-2xl font-semibold text-text">
+              Servicios destacados
+            </p>
+            <p className="mt-2 text-text-muted">Texto secundario en gris de marca.</p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <button type="button" className="btn-primary px-6 py-3">
+                Solicitar consulta
+              </button>
+              <button type="button" className="btn-secondary px-6 py-3">
+                Ver Proyectos
+              </button>
+            </div>
+          </div>
+        </Block>
+
+        <Block title="Radios">
+          <div className="flex flex-wrap gap-6">
+            {RADII.map((r) => (
+              <div key={r.name} className="text-center">
+                <div className={`h-16 w-16 border border-electric/60 bg-surface ${r.cls}`} />
+                <p className="mt-2 font-mono text-xs text-text-muted">
+                  {r.name} · {r.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Block>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,477 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
+@import "@fontsource/space-grotesk/latin-600.css";
+@import "@fontsource/space-grotesk/latin-700.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * PROVOLT ELECTRICIDAD — Sistema de diseño
+ * Fuente única de verdad de los tokens. Los componentes usan SOLO
+ * estas variables / utilidades de Tailwind derivadas de ellas.
+ *
+ * Azul de marca     #0879D7  --color-brand: botones y fondos con texto blanco (contraste AA).
+ * Azul eléctrico    #00B8F8  --provolt-accent en oscuro: acentos, brillos, cifras, líneas de energía
+ *                   (color del logo luminoso). En .theme-light el acento baja a #0879D7 por contraste.
+ * Cian claro        #48E0F8  estados "nuevo"/"completada" y segundo color de los pulsos.
+ * Ámbar             #F2BA02  SOLO estados "pendiente" / "en proceso" (no es color de marca).
+ * Excepción: verde WhatsApp #25D366 (solo su botón flotante).
+ * Temas: oscuro por defecto; .theme-light en secciones de contenido; .theme-space en las que llevan
+ * vídeo (hero y métricas): casi negro azulado, rejilla y líneas de energía.
+ */
+
+@theme inline {
+  /* Tipografía */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Radios */
+  --radius-sm: var(--radius-token-sm);
+  --radius-md: var(--radius-token-md);
+  --radius-lg: var(--radius-token-lg);
+  --radius-xl: var(--radius-token-lg);
+  --radius-full: var(--radius-token-full);
+
+  /* Sombras */
+  --shadow-elevated: var(--shadow-token-elevated);
+  --shadow-glow: var(--shadow-token-glow);
+  --shadow-glow-strong: var(--shadow-token-glow-strong);
+
+  /* Colores de marca (logo Provolt) — fijos */
+  --color-brand: #0879d7;
+  --color-brand-dark: #055aa3;
+  --color-brand-gray: #4a6676;
+  --color-brand-cyan: #00b8f8;
+  --color-ink: #00060c;
+
+  /* Colores semánticos — cambian según el tema de la sección */
+  --color-canvas: var(--provolt-bg);
+  --color-surface: var(--provolt-surface);
+  --color-surface-elevated: var(--provolt-surface-elevated);
+  --color-line: var(--provolt-border);
+  --color-electric: var(--provolt-accent);
+  --color-amber: var(--provolt-yellow);
+  --color-success: var(--provolt-success);
+  --color-danger: var(--provolt-danger);
+  --color-text: var(--provolt-text);
+  --color-text-muted: var(--provolt-text-muted);
+  --color-logo-accent: var(--provolt-logo-accent);
+  --color-logo-gray: var(--provolt-logo-gray);
+
+  /* Mapeo semántico para componentes shadcn/ui */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-placeholder: var(--provolt-surface-elevated);
+  --color-chart-1: #0879d7;
+  --color-chart-2: #00b8f8;
+  --color-chart-3: #48e0f8;
+  --color-chart-4: var(--provolt-success);
+  --color-chart-5: var(--provolt-danger);
+  --color-sidebar: var(--provolt-surface);
+  --color-sidebar-foreground: var(--provolt-text);
+  --color-sidebar-primary: #0879d7;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: var(--provolt-surface-elevated);
+  --color-sidebar-accent-foreground: var(--provolt-text);
+  --color-sidebar-border: var(--provolt-border);
+  --color-sidebar-ring: var(--provolt-accent);
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Tema OSCURO de marca (cabecera, pie) */
+:root,
+.dark {
+  color-scheme: dark;
+
+  /* Paleta de marca */
+  --provolt-blue: #0879d7;
+  --provolt-cyan: #00b8f8;
+  --provolt-gray: #4a6676;
+  --provolt-yellow: #f2ba02;
+
+  --provolt-bg: #000e19;
+  --provolt-surface: #04182a;
+  --provolt-surface-elevated: #092735;
+  --provolt-border: #12384d;
+  --provolt-accent: #00b8f8;
+  --provolt-success: #00c853;
+  --provolt-danger: #ff3b5c;
+  --provolt-text: #eaf6fb;
+  --provolt-text-muted: #8fb4c4;
+  --provolt-grid: #0b2233;
+  --provolt-logo-accent: #48e0f8;
+  --provolt-logo-gray: #8fb4c4;
+  --provolt-glow: 0 184 248;
+  --provolt-pulse: #00b8f8;
+  --provolt-pulse-alt: #48e0f8;
+
+  /* Radios */
+  --radius: 12px;
+  --radius-token-sm: 6px;
+  --radius-token-md: 12px;
+  --radius-token-lg: 20px;
+  --radius-token-full: 999px;
+
+  /* Sombras */
+  --shadow-token-elevated:
+    0 1px 0 rgb(255 255 255 / 0.03) inset, 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --shadow-token-glow:
+    0 0 0 1px rgb(var(--provolt-glow) / 0.3), 0 0 24px rgb(var(--provolt-glow) / 0.35);
+  --shadow-token-glow-strong:
+    0 0 0 1px rgb(var(--provolt-glow) / 0.5), 0 0 36px rgb(var(--provolt-glow) / 0.45);
+
+  /* Motion */
+  --motion-fast: 200ms;
+  --motion-base: 300ms;
+
+  /* Semántica shadcn/ui */
+  --background: var(--provolt-bg);
+  --foreground: var(--provolt-text);
+  --card: var(--provolt-surface);
+  --card-foreground: var(--provolt-text);
+  --popover: var(--provolt-surface-elevated);
+  --popover-foreground: var(--provolt-text);
+  --primary: var(--provolt-blue);
+  --primary-foreground: #ffffff;
+  --secondary: var(--provolt-surface-elevated);
+  --secondary-foreground: var(--provolt-text);
+  --muted: var(--provolt-surface-elevated);
+  --muted-foreground: var(--provolt-text-muted);
+  --accent: var(--provolt-surface-elevated);
+  --accent-foreground: var(--provolt-text);
+  --destructive: var(--provolt-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--provolt-border);
+  --input: var(--provolt-border);
+  --ring: var(--provolt-accent);
+}
+
+/* Tema CLARO de marca (secciones de contenido) */
+.theme-light {
+  color-scheme: light;
+  --provolt-bg: #ffffff;
+  --provolt-surface: #f2f8fb;
+  --provolt-surface-elevated: #e6f1f7;
+  --provolt-border: #d3e5ee;
+  --provolt-accent: #0879d7;
+  --provolt-text: #07202e;
+  --provolt-text-muted: #4a6676;
+  --provolt-grid: #e9f2f7;
+  --provolt-logo-accent: #0879d7;
+  --provolt-logo-gray: #4a6676;
+  --provolt-glow: 8 121 215;
+  --shadow-token-elevated: 0 1px 2px rgb(7 32 46 / 0.04), 0 10px 28px -14px rgb(7 32 46 / 0.18);
+  --ring: #0879d7;
+  color: var(--provolt-text);
+}
+
+/* Tema ESPACIAL (secciones con vídeo: hero y métricas) — casi negro, rejilla y líneas de energía */
+.theme-space {
+  color-scheme: dark;
+  --provolt-bg: #00060c;
+  --provolt-surface: #04121c;
+  --provolt-surface-elevated: #08202f;
+  --provolt-border: #0f3248;
+  --provolt-accent: #00b8f8;
+  --provolt-text: #eaf6fb;
+  --provolt-text-muted: #8fb4c4;
+  --provolt-grid: #0b2233;
+  --provolt-glow: 0 184 248;
+  --provolt-pulse: #00b8f8;
+  --provolt-pulse-alt: #48e0f8;
+  color: var(--provolt-text);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background-color: var(--provolt-bg);
+  }
+
+  body {
+    background-color: var(--provolt-bg);
+    color: var(--provolt-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--provolt-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: rgb(0 184 248 / 0.3);
+    color: var(--provolt-text);
+  }
+}
+
+@layer components {
+  /* Rejilla blueprint técnica */
+  .bg-blueprint {
+    background-color: var(--provolt-bg);
+    background-image:
+      linear-gradient(var(--provolt-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--provolt-grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+
+  /* Botones */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-token-full);
+    background: var(--provolt-blue);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: var(--shadow-token-glow);
+    transition:
+      transform var(--motion-fast) var(--ease-out-soft),
+      box-shadow var(--motion-base) var(--ease-out-soft),
+      background-color var(--motion-base) var(--ease-out-soft);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      transform: scale(1.02);
+      background: #0b8cf0;
+      box-shadow: var(--shadow-token-glow-strong);
+    }
+  }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-token-full);
+    background: linear-gradient(135deg, #00b8f8, #48e0f8);
+    color: #00131f;
+    font-weight: 700;
+    box-shadow:
+      0 0 0 1px rgb(0 184 248 / 0.5),
+      0 0 28px rgb(0 184 248 / 0.4);
+    transition:
+      transform var(--motion-fast) var(--ease-out-soft),
+      box-shadow var(--motion-base) var(--ease-out-soft);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-accent:hover {
+      transform: scale(1.02);
+      box-shadow:
+        0 0 0 1px rgb(72 224 248 / 0.7),
+        0 0 44px rgb(0 184 248 / 0.6);
+    }
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-token-full);
+    border: 1px solid var(--provolt-border);
+    background: color-mix(in oklab, var(--provolt-surface) 60%, transparent);
+    color: var(--provolt-text);
+    font-weight: 500;
+    transition:
+      transform var(--motion-fast) var(--ease-out-soft),
+      border-color var(--motion-base) var(--ease-out-soft),
+      box-shadow var(--motion-base) var(--ease-out-soft);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-secondary:hover {
+      transform: scale(1.02);
+      border-color: var(--provolt-accent);
+      box-shadow: var(--shadow-token-glow);
+    }
+  }
+
+  /* Estado "pulsado" de los botones de acción (Fase 9) */
+  .btn-primary:active:not(:disabled),
+  .btn-accent:active:not(:disabled),
+  .btn-secondary:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  /* Foco de teclado con el mismo brillo que el hover */
+  .btn-primary:focus-visible,
+  .btn-accent:focus-visible,
+  .btn-secondary:focus-visible,
+  .card-tech-interactive:focus-visible {
+    outline: 2px solid var(--provolt-accent);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-token-glow);
+  }
+
+  /* Tarjetas */
+  .card-tech {
+    border-radius: var(--radius-token-md);
+    border: 1px solid var(--provolt-border);
+    background: var(--provolt-surface);
+    box-shadow: var(--shadow-token-elevated);
+    transition:
+      transform var(--motion-base) var(--ease-out-soft),
+      border-color var(--motion-base) var(--ease-out-soft),
+      box-shadow var(--motion-base) var(--ease-out-soft);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .card-tech-interactive:hover {
+      transform: scale(1.02);
+      border-color: rgb(var(--provolt-glow) / 0.6);
+      box-shadow: var(--shadow-token-glow);
+    }
+  }
+
+  /* Badge amarillo de marca */
+  .badge-amber {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: var(--radius-token-full);
+    background: var(--provolt-yellow);
+    color: #07202e;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0.625rem;
+  }
+
+  /* Scroll reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 400ms var(--ease-out-soft),
+      transform 400ms var(--ease-out-soft);
+  }
+  [data-reveal][data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  /* Variante solo fundido (textos legales) */
+  [data-reveal="fade"] {
+    transform: none;
+  }
+
+  /* Al enfocar un campo, el navegador lo deja visible por encima de la cabecera fija y del teclado */
+  input,
+  textarea,
+  select {
+    scroll-margin-block: 6rem 2rem;
+  }
+}
+
+/* Brillo de texto (cifras de la franja de métricas) */
+.text-glow {
+  text-shadow:
+    0 0 18px rgb(0 184 248 / 0.55),
+    0 0 2px rgb(72 224 248 / 0.7);
+}
+
+/* Líneas de energía del hero */
+@keyframes energy-flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.energy-pulse {
+  stroke-dasharray: 60 940;
+  animation: energy-flow 7s linear infinite;
+}
+
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+.glow-breathe {
+  animation: glow-breathe 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .energy-pulse,
+  .glow-breathe {
+    animation: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-in {
+    animation: none;
+  }
+  .btn-primary:hover,
+  .btn-accent:hover,
+  .btn-secondary:hover,
+  .card-tech-interactive:hover,
+  .btn-primary:active,
+  .btn-accent:active,
+  .btn-secondary:active {
+    transform: none;
+  }
+}
