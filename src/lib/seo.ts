@@ -174,3 +174,16 @@ export function articleLd(
     publisher: { "@id": ORG_ID },
   };
 }
+
+/** JSON-LD FAQPage a partir de pares pregunta/respuesta. */
+export function faqLd(faq: Array<{ q: string; a: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}

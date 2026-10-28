@@ -7,10 +7,10 @@ import type { CompanyInfo } from "@/lib/home-data";
 
 /** Servicios prioritarios del negocio: acceso directo desde la portada. */
 const PRIORITY = [
-  { slug: "averias-urgencias-electricas", label: "Averías urgentes 24 h", icon: "wrench" },
-  { slug: "boletines-y-certificados", label: "Boletines eléctricos", icon: "file-check" },
-  { slug: "proyectos-electricos", label: "Proyectos eléctricos", icon: "network" },
-  { slug: "inspeccion-oca", label: "Inspección OCA", icon: "shield-check" },
+  { to: "/averias-urgentes", label: "Averías urgentes 24 h", icon: "wrench" },
+  { to: "/boletines-y-proyectos-electricos", label: "Boletines eléctricos", icon: "file-check" },
+  { to: "/boletines-y-proyectos-electricos", label: "Proyectos eléctricos", icon: "network" },
+  { to: "/servicios/$slug", slug: "inspeccion-oca", label: "Inspección OCA", icon: "shield-check" },
 ] as const;
 
 export function Hero({ company }: { company: CompanyInfo }) {
@@ -37,10 +37,10 @@ export function Hero({ company }: { company: CompanyInfo }) {
           </p>
           <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Servicios principales">
             {PRIORITY.map((p) => (
-              <li key={p.slug}>
+              <li key={p.label}>
                 <Link
-                  to="/servicios/$slug"
-                  params={{ slug: p.slug }}
+                  to={p.to}
+                  params={"slug" in p ? { slug: p.slug } : {}}
                   className="inline-flex items-center gap-2 rounded-full border border-electric/40 bg-canvas/60 px-4 py-2 text-sm font-medium text-text backdrop-blur transition hover:border-electric hover:shadow-glow"
                 >
                   <ServiceIcon name={p.icon} className="h-4 w-4 text-electric" />

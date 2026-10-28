@@ -7,8 +7,9 @@ import { AccountMenu, MobileAccountLinks } from "./AccountMenu";
 export const NAV_LINKS = [
   { label: "Inicio", to: "/" },
   { label: "Servicios", to: "/servicios" },
+  { label: "Averías 24 h", to: "/averias-urgentes" },
+  { label: "Boletines y proyectos", to: "/boletines-y-proyectos-electricos" },
   { label: "Sobre nosotros", to: "/sobre-nosotros" },
-  { label: "Requisitos legales", to: "/requisitos-legales" },
   { label: "Blog", to: "/blog" },
   { label: "Contacto", to: "/contacto" },
 ] as const;

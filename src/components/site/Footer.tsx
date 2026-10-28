@@ -96,7 +96,9 @@ export function Footer({ company }: { company: CompanyInfo }) {
             <Link to="/aviso-legal" className="transition-colors hover:text-text">
               Aviso Legal
             </Link>
-            {company.cif ? <span>CIF {company.cif}</span> : null}
+            <Link to="/requisitos-legales" className="transition-colors hover:text-text">
+              Requisitos legales
+            </Link>
           </nav>
         </div>
       </div>

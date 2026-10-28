@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AveriasUrgentesRouteImport } from './routes/averias-urgentes'
 import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
+import { Route as BoletinesYProyectosElectricosRouteImport } from './routes/boletines-y-proyectos-electricos'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
@@ -64,11 +66,22 @@ const AdminRoute = AdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AveriasUrgentesRoute = AveriasUrgentesRouteImport.update({
+  id: '/averias-urgentes',
+  path: '/averias-urgentes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AvisoLegalRoute = AvisoLegalRouteImport.update({
   id: '/aviso-legal',
   path: '/aviso-legal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoletinesYProyectosElectricosRoute =
+  BoletinesYProyectosElectricosRouteImport.update({
+    id: '/boletines-y-proyectos-electricos',
+    path: '/boletines-y-proyectos-electricos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -280,7 +293,9 @@ const AdminTestimoniosIdEditarRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/averias-urgentes': typeof AveriasUrgentesRoute
   '/aviso-legal': typeof AvisoLegalRoute
+  '/boletines-y-proyectos-electricos': typeof BoletinesYProyectosElectricosRoute
   '/contacto': typeof ContactoRoute
   '/login': typeof LoginRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
@@ -325,7 +340,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/averias-urgentes': typeof AveriasUrgentesRoute
   '/aviso-legal': typeof AvisoLegalRoute
+  '/boletines-y-proyectos-electricos': typeof BoletinesYProyectosElectricosRoute
   '/contacto': typeof ContactoRoute
   '/login': typeof LoginRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
@@ -372,7 +389,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/averias-urgentes': typeof AveriasUrgentesRoute
   '/aviso-legal': typeof AvisoLegalRoute
+  '/boletines-y-proyectos-electricos': typeof BoletinesYProyectosElectricosRoute
   '/contacto': typeof ContactoRoute
   '/login': typeof LoginRoute
   '/politica-privacidad': typeof PoliticaPrivacidadRoute
@@ -420,7 +439,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
+    | '/averias-urgentes'
     | '/aviso-legal'
+    | '/boletines-y-proyectos-electricos'
     | '/contacto'
     | '/login'
     | '/politica-privacidad'
@@ -465,7 +486,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/averias-urgentes'
     | '/aviso-legal'
+    | '/boletines-y-proyectos-electricos'
     | '/contacto'
     | '/login'
     | '/politica-privacidad'
@@ -511,7 +534,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/admin'
+    | '/averias-urgentes'
     | '/aviso-legal'
+    | '/boletines-y-proyectos-electricos'
     | '/contacto'
     | '/login'
     | '/politica-privacidad'
@@ -558,7 +583,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AveriasUrgentesRoute: typeof AveriasUrgentesRoute
   AvisoLegalRoute: typeof AvisoLegalRoute
+  BoletinesYProyectosElectricosRoute: typeof BoletinesYProyectosElectricosRoute
   ContactoRoute: typeof ContactoRoute
   LoginRoute: typeof LoginRoute
   PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
@@ -598,11 +625,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/averias-urgentes': {
+      id: '/averias-urgentes'
+      path: '/averias-urgentes'
+      fullPath: '/averias-urgentes'
+      preLoaderRoute: typeof AveriasUrgentesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/aviso-legal': {
       id: '/aviso-legal'
       path: '/aviso-legal'
       fullPath: '/aviso-legal'
       preLoaderRoute: typeof AvisoLegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/boletines-y-proyectos-electricos': {
+      id: '/boletines-y-proyectos-electricos'
+      path: '/boletines-y-proyectos-electricos'
+      fullPath: '/boletines-y-proyectos-electricos'
+      preLoaderRoute: typeof BoletinesYProyectosElectricosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -946,7 +987,9 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
+  AveriasUrgentesRoute: AveriasUrgentesRoute,
   AvisoLegalRoute: AvisoLegalRoute,
+  BoletinesYProyectosElectricosRoute: BoletinesYProyectosElectricosRoute,
   ContactoRoute: ContactoRoute,
   LoginRoute: LoginRoute,
   PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
