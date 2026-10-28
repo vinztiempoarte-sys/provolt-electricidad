@@ -9,6 +9,7 @@ import { Breadcrumbs } from "./Breadcrumbs";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 import { CtaBand } from "./CtaBand";
+import { AVERIAS_VIDEOS, BOLETINES_VIDEOS } from "@/lib/media";
 
 function telHref(phone: string | null): string | undefined {
   return phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
@@ -53,6 +54,7 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
         kicker={page.kicker}
         title={page.title}
         subtitle={page.subtitle}
+        videos={page.path === "/averias-urgentes" ? AVERIAS_VIDEOS : BOLETINES_VIDEOS}
       >
         <CallButtons company={company} page={page} className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4" />
       </PageHero>

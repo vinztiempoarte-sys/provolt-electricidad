@@ -53,3 +53,10 @@ export const TRUST_VIDEO: BackgroundVideo = {
   label: "Líneas eléctricas",
   sources: [original(30567734)],
 };
+
+const byId = (ids: string[]) =>
+  ids.map((id) => HERO_VIDEOS.find((v) => v.id === id)).filter((v): v is BackgroundVideo => !!v);
+
+/** Vídeos de cabecera de las páginas de servicio prioritarias (mismos clips que la portada). */
+export const AVERIAS_VIDEOS = byId(["alta-tension", "cuadro-electrico", "instalacion"]);
+export const BOLETINES_VIDEOS = byId(["cuadro-electrico", "instalacion", "industria"]);
