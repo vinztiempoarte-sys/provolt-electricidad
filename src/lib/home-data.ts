@@ -24,7 +24,7 @@ export async function fetchHomeData(): Promise<HomeData> {
       .select("*")
       .eq("featured", true)
       .order("order_index", { ascending: true })
-      .limit(4),
+      .limit(6),
     supabase.from("services").select("id", { count: "exact", head: true }),
     supabase
       .from("projects")

@@ -33,7 +33,7 @@ export const Route = createFileRoute("/servicios/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Servicio no encontrado | Provolt Electricidad" }] };
     const { service } = loaderData;
-    const title = `${service.title} | Provolt Electricidad`;
+    const title = `${service.title} en Valencia | Provolt Electricidad`;
     const path = `/servicios/${service.slug}`;
     const og = pageMeta({
       title,

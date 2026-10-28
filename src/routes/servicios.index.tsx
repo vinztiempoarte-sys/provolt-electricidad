@@ -23,9 +23,9 @@ export const Route = createFileRoute("/servicios/")({
     return { company, services, projects, testimonials };
   },
   head: () => {
-    const title = "Servicios de Electricista en Valencia | Presupuesto Gratis";
+    const title = "Servicios de Electricista en Valencia: Boletines, Proyectos, OCA y Averías 24h";
     const description =
-      "Averías, cuadros, reformas, boletines, fotovoltaica y cargadores de coche eléctrico en Valencia y alrededores, con 35 años de experiencia. Presupuesto sin compromiso.";
+      "Averías urgentes 24 h, boletines eléctricos, proyectos eléctricos, inspección OCA, cuadros, reformas y fotovoltaica en Valencia y alrededores. Presupuesto sin compromiso.";
     const crumbs = [{ label: "Inicio", to: "/" }, { label: "Servicios" }];
     const og = pageMeta({ title, description, path: "/servicios" });
     return {

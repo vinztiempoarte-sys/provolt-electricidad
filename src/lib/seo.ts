@@ -91,6 +91,15 @@ export function organizationLd(company: {
       addressCountry: "ES",
     },
     areaServed: { "@type": "AdministrativeArea", name: "Valencia y alrededores" },
+    description:
+      "Electricista en Valencia y alrededores: averías urgentes 24 h, boletines eléctricos, proyectos eléctricos e inspección OCA.",
+    knowsAbout: [
+      "Averías eléctricas urgentes",
+      "Boletines eléctricos",
+      "Proyectos eléctricos",
+      "Inspección OCA",
+      "Instalaciones eléctricas",
+    ],
     openingHoursSpecification: company.schedule?.includes("24h")
       ? [
           {

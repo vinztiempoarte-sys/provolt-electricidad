@@ -14,9 +14,9 @@ export const Route = createFileRoute("/")({
   loader: () => fetchHomeData(),
   head: ({ loaderData }) => {
     const company = loaderData?.company;
-    const title = "Provolt Electricidad · Electricistas en Valencia | Urgencias 24 h";
+    const title = "Electricista en Valencia 24h | Boletines, Proyectos y OCA | Provolt";
     const description =
-      "Electricistas autorizados en Valencia y alrededores: averías 24 h, cuadros, reformas, boletines, fotovoltaica y cargadores. 35 años de experiencia. Presupuesto sin compromiso.";
+      "Electricista en Valencia y alrededores: averías urgentes 24 h, boletines eléctricos, proyectos eléctricos e inspección OCA. Presupuesto sin compromiso.";
     const og = pageMeta({ title, description, path: "/" });
     return {
       meta: [{ title }, { name: "description", content: description }, ...og.meta],

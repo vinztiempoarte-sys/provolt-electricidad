@@ -75,14 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Provolt Electricidad · Electricistas en Valencia" },
+      { title: "Electricista en Valencia 24h | Boletines, Proyectos y OCA | Provolt" },
       {
         name: "description",
         content:
-          "Si es eléctrico, es Provolt. Electricistas autorizados en Valencia y alrededores: averías 24 h, cuadros, reformas, boletines, fotovoltaica y cargadores de coche eléctrico.",
+          "Si es eléctrico, es Provolt. Electricista en Valencia y alrededores: averías urgentes 24 h, boletines eléctricos, proyectos eléctricos e inspección OCA.",
       },
       { name: "theme-color", content: "#00060c" },
-      { property: "og:title", content: "Provolt Electricidad · Electricistas en Valencia" },
+      { property: "og:title", content: "Electricista en Valencia 24h | Boletines, Proyectos y OCA | Provolt" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

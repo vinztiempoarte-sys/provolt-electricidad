@@ -1,8 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { HeroVideo } from "./HeroVideo";
+import { ServiceIcon } from "./icons";
 import { HeroEnergyLines } from "./HeroEnergyLines";
 import { HERO_VIDEOS } from "@/lib/media";
 import type { CompanyInfo } from "@/lib/home-data";
+
+/** Servicios prioritarios del negocio: acceso directo desde la portada. */
+const PRIORITY = [
+  { slug: "averias-urgencias-electricas", label: "Averías urgentes 24 h", icon: "wrench" },
+  { slug: "boletines-y-certificados", label: "Boletines eléctricos", icon: "file-check" },
+  { slug: "proyectos-electricos", label: "Proyectos eléctricos", icon: "network" },
+  { slug: "inspeccion-oca", label: "Inspección OCA", icon: "shield-check" },
+] as const;
 
 export function Hero({ company }: { company: CompanyInfo }) {
   return (
@@ -22,11 +31,25 @@ export function Hero({ company }: { company: CompanyInfo }) {
             Electricistas en <span className="text-electric text-glow">Valencia</span> y alrededores
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text/85 sm:text-xl">
-            <strong className="font-semibold text-text">{company.slogan}.</strong> Instalador
-            autorizado: averías, cuadros, reformas, boletines y fotovoltaica, con presupuesto sin
+            <strong className="font-semibold text-text">{company.slogan}.</strong> Averías urgentes,
+            boletines eléctricos, proyectos eléctricos e inspección OCA, con presupuesto sin
             compromiso.
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Servicios principales">
+            {PRIORITY.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  to="/servicios/$slug"
+                  params={{ slug: p.slug }}
+                  className="inline-flex items-center gap-2 rounded-full border border-electric/40 bg-canvas/60 px-4 py-2 text-sm font-medium text-text backdrop-blur transition hover:border-electric hover:shadow-glow"
+                >
+                  <ServiceIcon name={p.icon} className="h-4 w-4 text-electric" />
+                  {p.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <Link to="/contacto" className="btn-primary px-7 py-3.5 text-base">
               Pedir presupuesto
             </Link>
