@@ -28,17 +28,17 @@ export function AccountMenu() {
         <Link
           to="/login"
           aria-label="Iniciar sesión"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-text-muted transition-colors hover:text-text xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-text-muted transition-colors hover:text-text 2xl:hidden"
         >
           <UserRound className="h-4 w-4" />
         </Link>
         <Link
           to="/login"
-          className="hidden px-2 text-sm text-text-muted transition-colors hover:text-text xl:inline"
+          className="hidden px-2 text-sm text-text-muted transition-colors hover:text-text 2xl:inline whitespace-nowrap"
         >
           Iniciar sesión
         </Link>
-        <Link to="/registro" className="btn-secondary hidden px-4 py-2 text-sm xl:inline-flex">
+        <Link to="/registro" className="btn-secondary hidden px-4 py-2 text-sm 2xl:inline-flex">
           Registrarse
         </Link>
       </div>

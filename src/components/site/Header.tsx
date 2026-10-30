@@ -31,13 +31,13 @@ export function Header() {
         scrolled || open ? "border-line bg-canvas/85" : "border-transparent bg-canvas/40"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 
-        <nav aria-label="Navegación principal" className="hidden lg:block">
-          <ul className="flex items-center gap-6 text-sm xl:gap-8">
+        <nav aria-label="Navegación principal" className="hidden xl:block">
+          <ul className="flex items-center gap-6 text-sm whitespace-nowrap xl:gap-7">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>
                 <Link
@@ -54,13 +54,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/contacto" className="btn-primary hidden px-5 py-2.5 text-sm sm:inline-flex">
+          <Link to="/contacto" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 text-sm sm:inline-flex">
             Pedir presupuesto
           </Link>
           <AccountMenu />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-text lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-text xl:hidden"
             aria-expanded={open}
             aria-controls="menu-movil"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -75,7 +75,7 @@ export function Header() {
         <nav
           id="menu-movil"
           aria-label="Navegación móvil"
-          className="border-t border-line lg:hidden"
+          className="border-t border-line xl:hidden"
         >
           <ul className="mx-auto flex max-w-7xl flex-col px-5 py-4 sm:px-8">
             {NAV_LINKS.map((link) => (
