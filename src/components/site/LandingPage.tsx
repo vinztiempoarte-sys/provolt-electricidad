@@ -18,12 +18,14 @@ function telHref(phone: string | null): string | undefined {
 function CallButtons({ company, page, className }: { company: CompanyInfo; page: LandingContent; className?: string }) {
   const tel = telHref(company.phone);
   const wa = whatsappNumber(company.whatsapp ?? company.phone);
+  const urgent = page.path === "/averias-urgentes";
   return (
     <div className={className ?? "flex flex-col gap-3 sm:flex-row sm:gap-4"}>
       {tel ? (
         <a href={tel} className="btn-accent px-7 py-3.5 text-base">
           <Phone className="h-5 w-5" aria-hidden="true" />
-          Llamar al {company.phone?.replace(/^\+34\s*/, "")}
+          {urgent ? "Llamar ahora · " : "Llamar al "}
+          {company.phone?.replace(/^\+34\s*/, "")}
         </a>
       ) : null}
       {wa ? (
@@ -37,9 +39,11 @@ function CallButtons({ company, page, className }: { company: CompanyInfo; page:
           WhatsApp
         </a>
       ) : null}
-      <Link to="/contacto" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
-        Pedir presupuesto
-      </Link>
+      {urgent ? null : (
+        <Link to="/contacto" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
+          Pedir presupuesto
+        </Link>
+      )}
     </div>
   );
 }
@@ -54,6 +58,7 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
         kicker={page.kicker}
         title={page.title}
         subtitle={page.subtitle}
+        compact={page.path === "/averias-urgentes"}
         videos={page.path === "/averias-urgentes" ? AVERIAS_VIDEOS : BOLETINES_VIDEOS}
       >
         <CallButtons company={company} page={page} className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4" />
