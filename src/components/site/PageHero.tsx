@@ -28,7 +28,7 @@ export function PageHero({
       {videos ? <HeroVideo videos={videos} /> : null}
       <EnergyLines />
       <div
-        className={`relative mx-auto max-w-7xl px-5 sm:px-8 ${compact ? "pt-6 sm:pt-10" : "pt-16 sm:pt-24"} ${videos ? "pb-32 sm:pb-40" : "pb-20 sm:pb-28"}`}
+        className={`relative mx-auto max-w-7xl px-5 sm:px-8 ${compact ? "pt-6 sm:pt-10" : videos ? "pt-6 sm:pt-24" : "pt-16 sm:pt-24"} ${videos ? "pb-32 sm:pb-40" : "pb-20 sm:pb-28"}`}
       >
         {breadcrumb}
         {kicker ? <p className="mt-6 font-mono text-xs text-electric">{kicker}</p> : null}

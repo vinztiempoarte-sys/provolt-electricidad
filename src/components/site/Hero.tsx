@@ -22,7 +22,7 @@ export function Hero({ company }: { company: CompanyInfo }) {
     >
       <HeroVideo videos={HERO_VIDEOS} />
       <HeroEnergyLines />
-      <div className="relative mx-auto w-full max-w-7xl px-5 pt-24 pb-36 sm:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pt-6 pb-40 sm:px-8 sm:pt-24 sm:pb-36">
         <div className="max-w-3xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-canvas/50 px-3 py-1 font-mono text-xs text-text backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_8px_var(--provolt-accent)]" />
