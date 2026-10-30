@@ -41,7 +41,7 @@ function CallButtons({ company, page, className }: { company: CompanyInfo; page:
       ) : null}
       {urgent ? null : (
         <Link to="/contacto" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
-          Pedir presupuesto
+          Pedir boletín
         </Link>
       )}
     </div>
