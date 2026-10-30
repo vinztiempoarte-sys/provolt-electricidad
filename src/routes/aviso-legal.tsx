@@ -10,7 +10,8 @@ export const Route = createFileRoute("/aviso-legal")({
       { title: "Aviso Legal | Provolt Electricidad" },
       {
         name: "description",
-        content: "Datos identificativos y condiciones de uso del sitio web de Provolt Electricidad.",
+        content:
+          "Datos identificativos y condiciones de uso del sitio web de Provolt Electricidad.",
       },
     ],
   }),
@@ -55,17 +56,18 @@ function LegalNoticePage() {
           dañar los sistemas del titular ni de terceros.
         </p>
         <p>
-          La información facilitada en el sitio tiene carácter orientativo. Los presupuestos y
-          condiciones de cada servicio se concretan de forma individual con cada cliente.
+          La información facilitada en el sitio tiene carácter orientativo. Las condiciones de cada
+          servicio se concretan de forma individual con cada cliente.
         </p>
       </LegalSection>
 
       <LegalSection title="3. Propiedad intelectual e industrial">
         <p>
           Los contenidos de este sitio (textos, diseño, logotipos, imágenes y código) son
-          titularidad del titular de este sitio o de terceros que han autorizado su uso, y están protegidos
-          por la normativa de propiedad intelectual e industrial. Queda prohibida su reproducción,
-          distribución o transformación sin autorización expresa, salvo para uso personal y privado.
+          titularidad del titular de este sitio o de terceros que han autorizado su uso, y están
+          protegidos por la normativa de propiedad intelectual e industrial. Queda prohibida su
+          reproducción, distribución o transformación sin autorización expresa, salvo para uso
+          personal y privado.
         </p>
       </LegalSection>
 

@@ -105,7 +105,7 @@ export const AVERIAS: LandingContent = {
     },
     {
       q: "¿Cuánto cuesta reparar una avería?",
-      a: "Depende de cuál sea la avería y de lo que haya que reparar. Llámanos, cuéntanos el problema y te damos presupuesto sin compromiso.",
+      a: "Depende de cuál sea la avería y de lo que haya que reparar. Llámanos y cuéntanos el problema.",
     },
     {
       q: "¿Trabajáis también en locales, comercios y naves?",
@@ -124,7 +124,7 @@ export const BOLETINES: LandingContent = {
   path: "/boletines-y-proyectos-electricos",
   metaTitle: "Boletines y Proyectos Eléctricos en Valencia | Provolt Electricidad",
   metaDescription:
-    "Gestionamos boletines eléctricos, certificados de instalación y proyectos eléctricos para reformas y obra nueva en Valencia y alrededores. Pide presupuesto sin compromiso.",
+    "Gestionamos boletines eléctricos, certificados de instalación y proyectos eléctricos para reformas y obra nueva en Valencia y alrededores.",
   serviceName: "Boletines y proyectos eléctricos",
   crumb: "Boletines y proyectos eléctricos",
   kicker: "// boletines y proyectos",

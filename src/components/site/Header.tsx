@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { AccountMenu, MobileAccountLinks } from "./AccountMenu";
+import { PHONE_TEL } from "@/lib/business";
 
 export const NAV_LINKS = [
   { label: "Inicio", to: "/" },
@@ -54,9 +55,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/contacto" className="btn-primary hidden whitespace-nowrap px-5 py-2.5 text-sm sm:inline-flex">
-            Pedir presupuesto
-          </Link>
+          <a href={PHONE_TEL} className="btn-primary hidden whitespace-nowrap px-5 py-2.5 text-sm sm:inline-flex">
+            Llamar ahora
+          </a>
           <AccountMenu />
           <button
             type="button"
@@ -92,13 +93,13 @@ export function Header() {
               </li>
             ))}
             <li className="pt-3 sm:hidden">
-              <Link
-                to="/contacto"
+              <a
+                href={PHONE_TEL}
                 onClick={() => setOpen(false)}
                 className="btn-primary w-full px-5 py-3 text-sm"
               >
-                Pedir presupuesto
-              </Link>
+                Llamar ahora
+              </a>
             </li>
             <MobileAccountLinks onNavigate={() => setOpen(false)} />
           </ul>

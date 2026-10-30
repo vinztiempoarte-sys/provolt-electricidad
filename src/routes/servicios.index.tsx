@@ -25,7 +25,7 @@ export const Route = createFileRoute("/servicios/")({
   head: () => {
     const title = "Servicios de Electricista en Valencia: Boletines, Proyectos, OCA y Averías 24h";
     const description =
-      "Averías urgentes 24 h, boletines eléctricos, proyectos eléctricos, inspección OCA, cuadros, reformas y fotovoltaica en Valencia y alrededores. Presupuesto sin compromiso.";
+      "Averías urgentes 24 h, boletines eléctricos, proyectos eléctricos, inspección OCA, cuadros, reformas y fotovoltaica en Valencia y alrededores.";
     const crumbs = [{ label: "Inicio", to: "/" }, { label: "Servicios" }];
     const og = pageMeta({ title, description, path: "/servicios" });
     return {

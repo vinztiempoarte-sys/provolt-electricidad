@@ -19,7 +19,7 @@ export const Route = createFileRoute("/contacto")({
     return { company, services };
   },
   head: () => {
-    const title = "Contacto y presupuesto sin compromiso | Provolt Electricidad";
+    const title = "Contacto | Provolt Electricidad";
     const description =
       "Contacta con Provolt Electricidad: electricistas en Valencia y alrededores. Teléfono 722 62 40 40, urgencias 24 h todos los días del año.";
     const og = pageMeta({ title, description, path: "/contacto" });

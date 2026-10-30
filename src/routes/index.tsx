@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
     const company = loaderData?.company;
     const title = "Electricista en Valencia 24h | Boletines, Proyectos y OCA | Provolt";
     const description =
-      "Electricista en Valencia y alrededores: averías urgentes 24 h, boletines eléctricos, proyectos eléctricos e inspección OCA. Presupuesto sin compromiso.";
+      "Electricista en Valencia y alrededores: averías urgentes 24 h, boletines eléctricos, proyectos eléctricos e inspección OCA.";
     const og = pageMeta({ title, description, path: "/" });
     return {
       meta: [{ title }, { name: "description", content: description }, ...og.meta],

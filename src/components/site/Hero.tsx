@@ -4,6 +4,7 @@ import { ServiceIcon } from "./icons";
 import { HeroEnergyLines } from "./HeroEnergyLines";
 import { HERO_VIDEOS } from "@/lib/media";
 import type { CompanyInfo } from "@/lib/home-data";
+import { PHONE_TEL } from "@/lib/business";
 
 /** Servicios prioritarios del negocio: acceso directo desde la portada. */
 const PRIORITY = [
@@ -32,8 +33,7 @@ export function Hero({ company }: { company: CompanyInfo }) {
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text/85 sm:text-xl">
             <strong className="font-semibold text-text">{company.slogan}.</strong> Averías urgentes,
-            boletines eléctricos, proyectos eléctricos e inspección OCA, con presupuesto sin
-            compromiso.
+            boletines eléctricos, proyectos eléctricos e inspección OCA.
           </p>
           <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Servicios principales">
             {PRIORITY.map((p) => (
@@ -50,9 +50,9 @@ export function Hero({ company }: { company: CompanyInfo }) {
             ))}
           </ul>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <Link to="/contacto" className="btn-primary px-7 py-3.5 text-base">
-              Pedir presupuesto
-            </Link>
+            <a href={PHONE_TEL} className="btn-primary px-7 py-3.5 text-base">
+              Llamar ahora
+            </a>
             <Link to="/servicios" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
               Ver servicios
             </Link>

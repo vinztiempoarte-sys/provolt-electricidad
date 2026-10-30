@@ -152,7 +152,7 @@ function ServicioDetalle() {
           search={{ service_id: service.id }}
           className="btn-accent px-8 py-4 text-base"
         >
-          Pedir presupuesto
+          Contactar
         </Link>
         <Link
           to="/reservar"

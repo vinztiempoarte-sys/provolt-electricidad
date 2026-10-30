@@ -68,7 +68,7 @@ function PrivacyPage() {
 
       <LegalSection title="3. Finalidades">
         <ul className="list-disc space-y-1 pl-5">
-          <li>Atender y responder las solicitudes de contacto y de presupuesto.</li>
+          <li>Atender y responder las solicitudes de contacto.</li>
           <li>Gestionar las citas que reservas (presenciales o por videollamada).</li>
           <li>Devolverte la llamada cuando lo solicitas en el horario que indicas.</li>
           <li>Gestionar tu cuenta y el área de cliente, si te registras.</li>

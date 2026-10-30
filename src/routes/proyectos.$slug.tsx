@@ -141,7 +141,7 @@ function ProyectoDetalle() {
 
       <CtaBand title="¿Necesitas una solución en esta área?">
         <Link to="/contacto" className="btn-accent px-8 py-4 text-base">
-          Pedir presupuesto
+          Contactar
         </Link>
       </CtaBand>
     </PageShell>

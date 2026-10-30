@@ -138,7 +138,7 @@ function RequisitosLegalesPage() {
 
       <CtaBand title="¿Tienes una instalación que legalizar o revisar?">
         <Link to="/contacto" className="btn-accent px-8 py-4 text-base">
-          Pedir presupuesto
+          Contactar
         </Link>
       </CtaBand>
     </PageShell>

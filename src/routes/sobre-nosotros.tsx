@@ -164,7 +164,7 @@ function SobreNosotros() {
 
           <div className="mt-12">
             <Link to="/contacto" className="btn-primary px-7 py-3.5">
-              Pedir presupuesto
+              Contactar
             </Link>
           </div>
         </div>

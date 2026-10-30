@@ -158,7 +158,7 @@ function BlogPostPage() {
 
       <CtaBand title="¿Tienes un proyecto en mente?">
         <Link to="/contacto" className="btn-accent px-8 py-4 text-base">
-          Pedir presupuesto
+          Contactar
         </Link>
       </CtaBand>
     </PageShell>
