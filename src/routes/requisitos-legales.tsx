@@ -53,7 +53,7 @@ const HABILITACION: Item[] = [
   {
     Icon: Landmark,
     title: "Registro Integrado Industrial",
-    text: "Inscripción en el Registro Integrado Industrial con el número 46/94224. Puedes comprobarla en la consulta pública del propio registro.",
+    text: "Inscripción en el Registro Integrado Industrial. Puedes comprobarla en la consulta pública del propio registro.",
   },
 ];
 
@@ -71,7 +71,7 @@ const GARANTIAS: Item[] = [
   {
     Icon: ClipboardList,
     title: "Actividad dada de alta",
-    text: "La actividad la ejerce su titular, Vicente Cataluña Sala, como autónomo. Los datos identificativos completos están en el aviso legal.",
+    text: "La actividad la ejerce su titular como autónomo. Los datos identificativos completos están en el aviso legal.",
   },
 ];
 

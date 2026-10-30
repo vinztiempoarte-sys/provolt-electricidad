@@ -16,12 +16,12 @@ const VALUES = [
   {
     Icon: Users,
     title: "Trato directo",
-    text: "Hablas con el instalador que va a hacer el trabajo: Vicente Cataluña Sala, autónomo, con 35 años de trayectoria profesional.",
+    text: "Hablas con el instalador que va a hacer el trabajo, con 35 años de trayectoria profesional.",
   },
   {
     Icon: Award,
     title: "Instalador autorizado",
-    text: "Carnets IBTB e IBTE 1 a 9 e inscripción en el Registro Integrado Industrial (nº 46/94224), con póliza de responsabilidad civil en vigor.",
+    text: "Carnets IBTB e IBTE 1 a 9 e inscripción en el Registro Integrado Industrial, con póliza de responsabilidad civil en vigor.",
   },
   {
     Icon: Layers,
@@ -87,14 +87,14 @@ function SobreNosotros() {
             className="max-w-[68ch] space-y-6 text-lg leading-relaxed text-text-muted"
           >
             <p>
-              {company.name} es el negocio de Vicente Cataluña Sala, instalador electricista
-              autorizado con sede en Paiporta. Trabaja en Valencia capital y en los municipios de
-              alrededor: viviendas, locales, comercios y naves.
+              {company.name} es el negocio de un instalador electricista autorizado con sede en
+              Paiporta. Trabaja en Valencia capital y en los municipios de alrededor: viviendas,
+              locales, comercios y naves.
             </p>
             <p>
               Los 35 años de experiencia son su trayectoria profesional en el sector. Hace
-              instalaciones con su boletín y certificados en regla, presupuesta sin compromiso y
-              atiende las urgencias a cualquier hora.
+              instalaciones con su boletín y certificados en regla y atiende las urgencias a
+              cualquier hora.
             </p>
           </Reveal>
         </div>

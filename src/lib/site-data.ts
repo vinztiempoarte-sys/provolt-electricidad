@@ -94,7 +94,7 @@ export function pickRelatedProjects(service: Service, projects: Project[]): Proj
   return pool.slice(0, 3);
 }
 
-/** Años de experiencia: calculados si hay año de inicio; si no, "35" (trayectoria profesional de Vicente Cataluña, dato facilitado por el titular). */
+/** Años de experiencia: calculados si hay año de inicio; si no, "35" (trayectoria profesional del titular, dato facilitado por él). */
 export function experienceLabel(foundedYear: number | null): string {
   return foundedYear ? String(new Date().getFullYear() - foundedYear) : "35";
 }

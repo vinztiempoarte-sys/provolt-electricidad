@@ -198,7 +198,7 @@ export const BOLETINES: LandingContent = {
     },
     {
       q: "¿Quién firma el boletín?",
-      a: "Lo firma Vicente Cataluña Sala, instalador autorizado con carnets IBTB e IBTE 1 a 9, inscrito en el Registro Integrado Industrial con el número 46/94224.",
+      a: "Lo firma un instalador eléctrico autorizado, con carnets IBTB e IBTE 1 a 9 e inscrito en el Registro Integrado Industrial.",
     },
   ],
   ctaTitle: "¿Necesitas un boletín o un proyecto eléctrico?",
