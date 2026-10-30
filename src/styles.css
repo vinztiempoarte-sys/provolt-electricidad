@@ -475,3 +475,10 @@
     transform: none;
   }
 }
+
+/* Móvil: con el aviso de cookies abierto, los botones flotantes quedan por encima de él */
+@media (max-width: 639px) {
+  html[data-cookie-banner="open"] .floating-contact {
+    bottom: calc(var(--cookie-h, 9rem) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}

@@ -394,7 +394,7 @@ export function FloatingContact() {
 
   return (
     <div
-      className="fixed right-4 z-40 flex flex-col items-end gap-3.5 sm:right-6"
+      className="floating-contact fixed right-4 z-40 flex flex-col items-end gap-3 sm:right-6 sm:gap-3.5"
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <div className="relative">
@@ -405,7 +405,7 @@ export function FloatingContact() {
           aria-expanded={open === "callback"}
           aria-controls="panel-llamada"
           aria-label="Solicitar que te llamemos"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-brand text-white shadow-lg shadow-brand/40 transition-[transform,box-shadow] duration-200 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:hover:shadow-brand/70 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
+          className="flex h-12 w-12 items-center justify-center rounded-full sm:h-14 sm:w-14 bg-brand text-white shadow-lg shadow-brand/40 transition-[transform,box-shadow] duration-200 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:hover:shadow-brand/70 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
         >
           {open === "callback" ? <X className="h-6 w-6" /> : <PhoneCall className="h-6 w-6" />}
         </button>
@@ -425,7 +425,7 @@ export function FloatingContact() {
             aria-expanded={open === "whatsapp"}
             aria-controls="panel-whatsapp"
             aria-label="Contactar por WhatsApp"
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-[transform,box-shadow] duration-200 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:hover:shadow-[#25D366]/60 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
+            className="flex h-12 w-12 items-center justify-center rounded-full sm:h-14 sm:w-14 bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-[transform,box-shadow] duration-200 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:hover:shadow-[#25D366]/60 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
           >
             {open === "whatsapp" ? (
               <X className="h-6 w-6" />
