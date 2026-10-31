@@ -20,8 +20,10 @@ const attachSession = createMiddleware({ type: "function" }).client(async ({ nex
 export const getMyProfile = createServerFn({ method: "GET" })
   .middleware([attachSession])
   .handler(async (): Promise<SessionProfile | null> => {
-    const url = process.env["SUPABASE_URL"];
-    const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
+    // En el hosting (Node/cPanel) no hay SUPABASE_URL en el entorno: se usan los valores
+    // públicos que Vite incrusta al compilar (los mismos que usa el navegador).
+    const url = process.env["SUPABASE_URL"] || import.meta.env["VITE_SUPABASE_URL"];
+    const key = process.env["SUPABASE_PUBLISHABLE_KEY"] || import.meta.env["VITE_SUPABASE_PUBLISHABLE_KEY"];
     if (!url || !key) return null;
 
     const auth = getRequest()?.headers.get("authorization") ?? "";
