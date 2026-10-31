@@ -57,6 +57,12 @@ export const TRUST_VIDEO: BackgroundVideo = {
 const byId = (ids: string[]) =>
   ids.map((id) => HERO_VIDEOS.find((v) => v.id === id)).filter((v): v is BackgroundVideo => !!v);
 
-/** Vídeos de cabecera de las páginas de servicio prioritarias (mismos clips que la portada). */
-export const AVERIAS_VIDEOS = byId(["alta-tension", "cuadro-electrico", "instalacion"]);
+/** Clips propios de la página de averías urgentes (distintos de los de la portada). */
+export const AVERIAS_VIDEOS: BackgroundVideo[] = [
+  { id: "armario-noche", label: "Armario eléctrico de noche", sources: [original(19888574)] },
+  { id: "cuadro-interruptores", label: "Cuadro con interruptores", sources: [original(6520278)] },
+  { id: "tecnico-averia", label: "Técnico reparando", sources: [original(29731535)] },
+];
+
+/** Vídeos de cabecera de boletines (mismos clips que la portada). */
 export const BOLETINES_VIDEOS = byId(["cuadro-electrico", "instalacion", "industria"]);
