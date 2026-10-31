@@ -61,7 +61,7 @@ const byId = (ids: string[]) =>
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
   { id: "operario-cuadro", label: "Operario trabajando en un cuadro eléctrico", sources: [original(30295544)] },
   { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
-  { id: "arreglando-luz", label: "Reparando un punto de luz", sources: [original(5391403)] },
+  { id: "descarga-electrica", label: "Descarga eléctrica", sources: [original(33979928)] },
 ];
 
 /** Versión nocturna (oscura), guardada por si se quiere volver a ella: cambiar AVERIAS_VIDEOS por esta. */
