@@ -17,7 +17,17 @@ export type BackgroundVideo = {
 
 const original = (id: number) => `https://www.pexels.com/download/video/${id}/`;
 
+/** Vídeo propio de Provolt: primer clip de la portada y de averías urgentes. */
+export const PROVOLT_SPOT: BackgroundVideo = {
+  id: "provolt-spot",
+  label: "Provolt Electricidad, 24 horas",
+  sources: ["/videos/provolt-averias.mp4"],
+  poster: "/videos/provolt-averias-poster.jpg",
+  durationMs: 10000,
+};
+
 export const HERO_VIDEOS: BackgroundVideo[] = [
+  PROVOLT_SPOT,
   {
     id: "cuadro-electrico",
     label: "Cuadros eléctricos",
@@ -61,13 +71,7 @@ const byId = (ids: string[]) =>
 
 /** Clips de averías de día (claros). Distintos de los de la portada. */
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
-  {
-    id: "provolt-spot",
-    label: "Provolt Electricidad, 24 horas",
-    sources: ["/videos/provolt-averias.mp4"],
-    poster: "/videos/provolt-averias-poster.jpg",
-    durationMs: 10000,
-  },
+  PROVOLT_SPOT,
   { id: "operario-cuadro", label: "Operario trabajando en un cuadro eléctrico", sources: [original(30295544)] },
   { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
   { id: "cuadro-interruptores", label: "Cuadro con interruptores", sources: [original(6520278)] },
