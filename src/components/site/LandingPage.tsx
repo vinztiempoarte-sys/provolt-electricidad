@@ -15,17 +15,24 @@ function telHref(phone: string | null): string | undefined {
   return phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
 }
 
-function CallButtons({ company, page, className }: { company: CompanyInfo; page: LandingContent; className?: string }) {
+function CallButtons({
+  company,
+  page,
+  className,
+}: {
+  company: CompanyInfo;
+  page: LandingContent;
+  className?: string;
+}) {
   const tel = telHref(company.phone);
   const wa = whatsappNumber(company.whatsapp ?? company.phone);
   const urgent = page.path === "/averias-urgentes";
   return (
     <div className={className ?? "flex flex-col gap-3 sm:flex-row sm:gap-4"}>
       {tel ? (
-        <a href={tel} className="btn-accent px-7 py-3.5 text-base">
+        <a href={tel} className={`${urgent ? "btn-urgent" : "btn-accent"} px-7 py-3.5 text-base`}>
           <Phone className="h-5 w-5" aria-hidden="true" />
-          {urgent ? "Llamar ahora · " : "Llamar al "}
-          {company.phone?.replace(/^\+34\s*/, "")}
+          {urgent ? "Llamar ahora" : `Llamar al ${company.phone?.replace(/^\+34\s*/, "")}`}
         </a>
       ) : null}
       {wa ? (
@@ -52,16 +59,18 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
   return (
     <PageShell company={company}>
       <PageHero
-        breadcrumb={
-          <Breadcrumbs items={[{ label: "Inicio", to: "/" }, { label: page.crumb }]} />
-        }
+        breadcrumb={<Breadcrumbs items={[{ label: "Inicio", to: "/" }, { label: page.crumb }]} />}
         kicker={page.kicker}
         title={page.title}
         subtitle={page.subtitle}
         compact={page.path === "/averias-urgentes"}
         videos={page.path === "/averias-urgentes" ? AVERIAS_VIDEOS : BOLETINES_VIDEOS}
       >
-        <CallButtons company={company} page={page} className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4" />
+        <CallButtons
+          company={company}
+          page={page}
+          className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4"
+        />
       </PageHero>
 
       {page.blocks.map((block, bi) => (
@@ -104,7 +113,9 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
             {page.steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 80}>
                 <li className="card-tech h-full list-none p-6">
-                  <span className="font-mono text-3xl text-electric">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-3xl text-electric">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <h3 className="mt-3 text-lg font-semibold text-text">{step.title}</h3>
                   {step.text ? (
                     <p className="mt-2 text-sm leading-relaxed text-text-muted">{step.text}</p>
@@ -125,7 +136,10 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
           </Reveal>
           <ul className="mt-8 flex flex-wrap gap-2.5">
             {MUNICIPIOS.map((m) => (
-              <li key={m} className="rounded-full border border-line bg-canvas px-4 py-2 text-sm text-text">
+              <li
+                key={m}
+                className="rounded-full border border-line bg-canvas px-4 py-2 text-sm text-text"
+              >
                 {m}
               </li>
             ))}
@@ -163,7 +177,11 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
       </section>
 
       <CtaBand title={page.ctaTitle}>
-        <CallButtons company={company} page={page} className="flex flex-col items-center gap-3 sm:flex-row" />
+        <CallButtons
+          company={company}
+          page={page}
+          className="flex flex-col items-center gap-3 sm:flex-row"
+        />
       </CtaBand>
     </PageShell>
   );

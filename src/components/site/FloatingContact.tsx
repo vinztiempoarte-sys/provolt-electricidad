@@ -343,6 +343,14 @@ export function FloatingContact() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const matches = useMatches();
   const [open, setOpen] = useState<Panel>(null);
+  // Los botones flotantes aparecen al empezar a hacer scroll, para no tapar la cabecera de la página
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 160);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Tras recargar con una llamada pendiente: aviso con opción de reintentar
   useEffect(() => {
@@ -394,7 +402,12 @@ export function FloatingContact() {
 
   return (
     <div
-      className="floating-contact fixed right-4 z-40 flex flex-col items-end gap-3 sm:right-6 sm:gap-3.5"
+      className={`floating-contact fixed right-4 z-40 flex flex-col items-end gap-3 transition-[opacity,transform] duration-300 sm:right-6 sm:gap-3.5 motion-reduce:transition-none ${
+        scrolled || open
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-4 opacity-0"
+      }`}
+      inert={!(scrolled || open)}
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
     >
       <div className="relative">

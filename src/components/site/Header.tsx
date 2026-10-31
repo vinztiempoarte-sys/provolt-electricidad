@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { Menu, Phone, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { AccountMenu, MobileAccountLinks } from "./AccountMenu";
 import { PHONE_TEL } from "@/lib/business";
@@ -18,6 +18,9 @@ export const NAV_LINKS = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // En averías urgentes la llamada es lo principal: botón rojo siempre visible, también en móvil
+  const urgent = pathname === "/averias-urgentes";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -55,9 +58,22 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={PHONE_TEL} className="btn-primary hidden whitespace-nowrap px-5 py-2.5 text-sm sm:inline-flex">
-            Llamar ahora
-          </a>
+          {urgent ? (
+            <a
+              href={PHONE_TEL}
+              className="btn-urgent whitespace-nowrap px-4 py-2.5 text-sm sm:px-5"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              Llamar ahora
+            </a>
+          ) : (
+            <a
+              href={PHONE_TEL}
+              className="btn-primary hidden whitespace-nowrap px-5 py-2.5 text-sm sm:inline-flex"
+            >
+              Llamar ahora
+            </a>
+          )}
           <AccountMenu />
           <button
             type="button"
@@ -96,7 +112,7 @@ export function Header() {
               <a
                 href={PHONE_TEL}
                 onClick={() => setOpen(false)}
-                className="btn-primary w-full px-5 py-3 text-sm"
+                className={`${urgent ? "btn-urgent" : "btn-primary"} w-full px-5 py-3 text-sm`}
               >
                 Llamar ahora
               </a>

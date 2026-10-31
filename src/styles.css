@@ -282,6 +282,38 @@
     }
   }
 
+  /* Botón de urgencia (llamar ahora) en rojo */
+  .btn-urgent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-token-full);
+    background: #e5162e;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow:
+      0 0 0 1px rgb(255 59 92 / 0.55),
+      0 0 24px rgb(229 22 46 / 0.55);
+    transition:
+      transform var(--motion-fast) var(--ease-out-soft),
+      box-shadow var(--motion-base) var(--ease-out-soft),
+      background-color var(--motion-base) var(--ease-out-soft);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-urgent:hover {
+      transform: scale(1.02);
+      background: #ff2a43;
+    }
+  }
+  .btn-urgent:active {
+    transform: scale(0.97);
+  }
+  .btn-urgent:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+  }
+
   .btn-accent {
     display: inline-flex;
     align-items: center;
