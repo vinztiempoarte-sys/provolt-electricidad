@@ -61,9 +61,9 @@ export function Header() {
           {urgent ? (
             <a
               href={PHONE_TEL}
-              className="btn-urgent whitespace-nowrap px-4 py-2.5 text-sm sm:px-5"
+              className="btn-urgent gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
             >
-              <Phone className="h-4 w-4" aria-hidden="true" />
+              <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
               Llamar ahora
             </a>
           ) : (
