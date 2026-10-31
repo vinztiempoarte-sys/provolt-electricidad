@@ -59,7 +59,7 @@ const byId = (ids: string[]) =>
 
 /** Clips de averías de día (claros). Distintos de los de la portada. */
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
-  { id: "enchufes-sin-funcionar", label: "Enchufes que no funcionan", sources: [original(1431409)] },
+  { id: "operario-cuadro", label: "Operario trabajando en un cuadro eléctrico", sources: [original(30295544)] },
   { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
   { id: "arreglando-luz", label: "Reparando un punto de luz", sources: [original(5391403)] },
 ];
