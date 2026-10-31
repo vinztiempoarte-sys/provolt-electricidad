@@ -17,9 +17,10 @@ export function HeroVideo({ videos }: { videos: BackgroundVideo[] }) {
   // Rotación automática
   useEffect(() => {
     if (reduced || videos.length < 2) return;
-    const t = window.setTimeout(() => setActive((i) => (i + 1) % videos.length), SLIDE_MS);
+    const ms = videos[active]?.durationMs ?? SLIDE_MS;
+    const t = window.setTimeout(() => setActive((i) => (i + 1) % videos.length), ms);
     return () => window.clearTimeout(t);
-  }, [active, reduced, videos.length]);
+  }, [active, reduced, videos]);
 
   // Reproduce solo el clip activo y precarga el siguiente
   useEffect(() => {
@@ -75,6 +76,11 @@ export function HeroVideo({ videos }: { videos: BackgroundVideo[] }) {
           >
             <span className="block h-0.5 overflow-hidden rounded-full bg-text/20">
               <span
+                style={
+                  i === active && !reduced
+                    ? { animationDuration: `${video.durationMs ?? SLIDE_MS}ms` }
+                    : undefined
+                }
                 className={`block h-full bg-electric ${
                   i === active
                     ? reduced

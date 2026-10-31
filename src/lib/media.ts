@@ -11,6 +11,8 @@ export type BackgroundVideo = {
   label: string;
   sources: string[];
   poster?: string;
+  /** Tiempo en pantalla en la rotación del hero (por defecto 7 s). */
+  durationMs?: number;
 };
 
 const original = (id: number) => `https://www.pexels.com/download/video/${id}/`;
@@ -59,6 +61,13 @@ const byId = (ids: string[]) =>
 
 /** Clips de averías de día (claros). Distintos de los de la portada. */
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
+  {
+    id: "provolt-spot",
+    label: "Provolt Electricidad, 24 horas",
+    sources: ["/videos/provolt-averias.mp4"],
+    poster: "/videos/provolt-averias-poster.jpg",
+    durationMs: 10000,
+  },
   { id: "operario-cuadro", label: "Operario trabajando en un cuadro eléctrico", sources: [original(30295544)] },
   { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
   { id: "cuadro-interruptores", label: "Cuadro con interruptores", sources: [original(6520278)] },
