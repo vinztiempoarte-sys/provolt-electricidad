@@ -57,8 +57,15 @@ export const TRUST_VIDEO: BackgroundVideo = {
 const byId = (ids: string[]) =>
   ids.map((id) => HERO_VIDEOS.find((v) => v.id === id)).filter((v): v is BackgroundVideo => !!v);
 
-/** Clips propios de la página de averías urgentes (distintos de los de la portada). */
+/** Clips de averías de día (claros). Distintos de los de la portada. */
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
+  { id: "enchufes-sin-funcionar", label: "Enchufes que no funcionan", sources: [original(1431409)] },
+  { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
+  { id: "arreglando-luz", label: "Reparando un punto de luz", sources: [original(5391403)] },
+];
+
+/** Versión nocturna (oscura), guardada por si se quiere volver a ella: cambiar AVERIAS_VIDEOS por esta. */
+export const AVERIAS_VIDEOS_NOCHE: BackgroundVideo[] = [
   { id: "armario-noche", label: "Armario eléctrico de noche", sources: [original(19888574)] },
   { id: "cuadro-interruptores", label: "Cuadro con interruptores", sources: [original(6520278)] },
   { id: "tecnico-averia", label: "Técnico reparando", sources: [original(29731535)] },
