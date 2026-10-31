@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { Header } from "../components/site/Header";
 import { FloatingContact } from "../components/site/FloatingContact";
 import { CookieBanner } from "../components/site/CookieBanner";
+import { SiteTracker } from "../components/site/SiteTracker";
 import { NotFoundPanel } from "../components/site/NotFoundPanel";
 
 function NotFoundComponent() {
@@ -123,6 +124,7 @@ function RootComponent() {
       <Outlet />
       <FloatingContact />
       <CookieBanner />
+      <SiteTracker />
       <Toaster theme="dark" position="bottom-center" richColors />
     </QueryClientProvider>
   );

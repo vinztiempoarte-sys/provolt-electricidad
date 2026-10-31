@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   MessageSquareQuote,
   Truck,
+  Eye,
   Users,
   Zap,
 } from "lucide-react";
@@ -20,5 +21,6 @@ export const ADMIN_NAV: ShellNavItem[] = [
   { label: "Proveedores", to: "/admin/proveedores", Icon: Truck },
   { label: "Solicitudes", to: "/admin/solicitudes", Icon: Inbox },
   { label: "Citas", to: "/admin/citas", Icon: CalendarDays },
+  { label: "Visitas", to: "/admin/visitas", Icon: Eye },
   { label: "Métricas", to: "/admin/metricas", Icon: ChartColumn },
 ];

@@ -484,6 +484,27 @@ export type Database = {
         }
         Returns: string
       }
+      analytics_by_day: {
+        Args: { p_days?: number }
+        Returns: { day: string; path: string; event: string; n: number }[]
+      }
+      analytics_by_source: {
+        Args: { p_days?: number }
+        Returns: { source: string; from_ads: boolean; path: string; event: string; n: number }[]
+      }
+      track_site_event: {
+        Args: {
+          p_event: string
+          p_path: string
+          p_referrer_host?: string
+          p_utm_source?: string
+          p_utm_medium?: string
+          p_utm_campaign?: string
+          p_from_ads?: boolean
+          p_device?: string
+        }
+        Returns: undefined
+      }
       submit_contact_request: {
         Args: {
           p_email: string

@@ -31,6 +31,7 @@ import { Route as AdminCitasRouteImport } from './routes/admin.citas'
 import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
 import { Route as AdminMetricasRouteImport } from './routes/admin.metricas'
 import { Route as AdminSolicitudesRouteImport } from './routes/admin.solicitudes'
+import { Route as AdminVisitasRouteImport } from './routes/admin.visitas'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ClienteDashboardRouteImport } from './routes/cliente.dashboard'
@@ -165,6 +166,11 @@ const AdminMetricasRoute = AdminMetricasRouteImport.update({
 const AdminSolicitudesRoute = AdminSolicitudesRouteImport.update({
   id: '/solicitudes',
   path: '/solicitudes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminVisitasRoute = AdminVisitasRouteImport.update({
+  id: '/visitas',
+  path: '/visitas',
   getParentRoute: () => AdminRoute,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -312,6 +318,7 @@ export interface FileRoutesByFullPath {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/metricas': typeof AdminMetricasRoute
   '/admin/solicitudes': typeof AdminSolicitudesRoute
+  '/admin/visitas': typeof AdminVisitasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
@@ -359,6 +366,7 @@ export interface FileRoutesByTo {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/metricas': typeof AdminMetricasRoute
   '/admin/solicitudes': typeof AdminSolicitudesRoute
+  '/admin/visitas': typeof AdminVisitasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
@@ -408,6 +416,7 @@ export interface FileRoutesById {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/metricas': typeof AdminMetricasRoute
   '/admin/solicitudes': typeof AdminSolicitudesRoute
+  '/admin/visitas': typeof AdminVisitasRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
@@ -458,6 +467,7 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/metricas'
     | '/admin/solicitudes'
+    | '/admin/visitas'
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
@@ -505,6 +515,7 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/metricas'
     | '/admin/solicitudes'
+    | '/admin/visitas'
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
@@ -553,6 +564,7 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/metricas'
     | '/admin/solicitudes'
+    | '/admin/visitas'
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
@@ -765,6 +777,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSolicitudesRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/visitas': {
+      id: '/admin/visitas'
+      path: '/visitas'
+      fullPath: '/admin/visitas'
+      preLoaderRoute: typeof AdminVisitasRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -941,6 +960,7 @@ interface AdminRouteChildren {
   AdminDashboardRoute: typeof AdminDashboardRoute
   AdminMetricasRoute: typeof AdminMetricasRoute
   AdminSolicitudesRoute: typeof AdminSolicitudesRoute
+  AdminVisitasRoute: typeof AdminVisitasRoute
   AdminIndexRoute: typeof AdminIndexRoute
   AdminEquipoNuevoRoute: typeof AdminEquipoNuevoRoute
   AdminProveedoresNuevoRoute: typeof AdminProveedoresNuevoRoute
@@ -964,6 +984,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminDashboardRoute: AdminDashboardRoute,
   AdminMetricasRoute: AdminMetricasRoute,
   AdminSolicitudesRoute: AdminSolicitudesRoute,
+  AdminVisitasRoute: AdminVisitasRoute,
   AdminIndexRoute: AdminIndexRoute,
   AdminEquipoNuevoRoute: AdminEquipoNuevoRoute,
   AdminProveedoresNuevoRoute: AdminProveedoresNuevoRoute,

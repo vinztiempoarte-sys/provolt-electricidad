@@ -1,3 +1,4 @@
+import { trackEvent } from "@/lib/analytics";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -147,6 +148,7 @@ export function ContactForm({
     }
     clearPending(PENDING_KEY);
     setPending(null);
+    trackEvent("form");
     setStatus("success");
     reset({ name: "", email: "", phone: "", service_id: "", message: "", consent: false });
   }
