@@ -391,6 +391,8 @@ export function FloatingContact() {
   useEffect(() => setOpen(null), [pathname]);
 
   if (PRIVATE_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return null;
+  // De momento los botones flotantes solo se muestran en la página de inicio
+  if (pathname !== "/") return null;
 
   // Título real del servicio cuando estamos en /servicios/[slug]
   const serviceMatch = matches.find((m) => m.routeId === "/servicios/$slug");
