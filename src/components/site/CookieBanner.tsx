@@ -58,7 +58,8 @@ export function CookieBanner() {
         <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
         <span>
           Usamos cookies técnicas necesarias para el funcionamiento del sitio (sesión de usuario).
-          No usamos cookies de analítica ni publicidad de terceros en esta versión.{" "}
+          Contamos las visitas con un contador propio, sin cookies y sin datos personales. No usamos
+          cookies de analítica ni de publicidad de terceros.{" "}
           <a href="/politica-privacidad" className="font-medium text-electric hover:underline">
             Más información
           </a>

@@ -50,7 +50,11 @@ function CallButtons({
         </a>
       ) : null}
       {urgent ? null : (
-        <Link to="/contacto" className="btn-primary px-7 py-3 text-base sm:py-3.5">
+        <Link
+          to="/contacto"
+          search={{ motivo: "boletin" }}
+          className="btn-primary px-7 py-3 text-base sm:py-3.5"
+        >
           Pedir boletín
         </Link>
       )}

@@ -62,9 +62,11 @@ function FieldError({ id, message }: { id: string; message?: string | undefined 
 export function ContactForm({
   services,
   defaultServiceId,
+  defaultMessage,
 }: {
   services: Service[];
   defaultServiceId?: string | undefined;
+  defaultMessage?: string | undefined;
 }) {
   const validDefault = services.some((s) => s.id === defaultServiceId) ? defaultServiceId! : "";
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error" | "offline">(
@@ -92,7 +94,7 @@ export function ContactForm({
       email: "",
       phone: "",
       service_id: validDefault,
-      message: "",
+      message: defaultMessage ?? "",
       consent: false,
     },
   });

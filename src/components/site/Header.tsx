@@ -63,6 +63,7 @@ export function Header() {
           {boletin ? (
             <Link
               to="/contacto"
+              search={{ motivo: "boletin" }}
               className="btn-primary whitespace-nowrap px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Pedir boletín

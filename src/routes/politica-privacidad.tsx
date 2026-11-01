@@ -23,11 +23,7 @@ function PrivacyPage() {
   const company = Route.useLoaderData();
   const email = company.email;
   return (
-    <LegalLayout
-      company={company}
-      title="Política de Privacidad"
-      updated="28 de octubre de 2026"
-    >
+    <LegalLayout company={company} title="Política de Privacidad" updated="28 de octubre de 2026">
       <p className="leading-relaxed text-text-muted">
         Esta política explica cómo tratamos los datos personales que nos facilitas a través de este
         sitio web, de acuerdo con el Reglamento (UE) 2016/679 General de Protección de Datos (RGPD)
@@ -155,6 +151,17 @@ function PrivacyPage() {
           de usuario, tu preferencia sobre este aviso y, si pierdes la conexión al enviar un
           formulario, una copia temporal de ese envío guardada en tu propio dispositivo, que se
           borra en cuanto se completa. No usamos cookies de analítica ni de publicidad de terceros.
+        </p>
+        <p>
+          Para saber cuántas personas visitan las páginas del sitio y cuántas llaman, escriben por
+          WhatsApp o envían el formulario, usamos un contador propio. No usa cookies, no guarda nada
+          en tu dispositivo y no te asigna ningún identificador. De cada visita o acción registra
+          únicamente la fecha y hora, la página visitada (sin los parámetros de la dirección), el
+          tipo de acción (visita, llamada, WhatsApp o formulario), el tipo de dispositivo (móvil,
+          tableta u ordenador) y, si existen, el sitio web de procedencia y las etiquetas de campaña
+          de la dirección de acceso. No guarda tu dirección IP ni es posible identificarte con estos
+          datos. Como en cualquier servidor web, los proveedores de alojamiento pueden registrar la
+          dirección IP en sus registros técnicos habituales.
         </p>
       </LegalSection>
     </LegalLayout>

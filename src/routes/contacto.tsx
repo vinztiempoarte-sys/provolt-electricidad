@@ -8,11 +8,17 @@ import { ContactForm } from "@/components/site/ContactForm";
 import { PageSkeleton } from "@/components/site/Skeletons";
 import { pageMeta } from "@/lib/seo";
 
-type ContactSearch = { service_id?: string | undefined };
+type ContactSearch = { service_id?: string | undefined; motivo?: "boletin" | undefined };
+
+/** Motivos predefinidos (botones "Pedir boletín"): servicio y mensaje de partida del formulario. */
+const MOTIVOS = {
+  boletin: { slug: "boletines-y-certificados", message: "Quiero pedir un boletín eléctrico." },
+} as const;
 
 export const Route = createFileRoute("/contacto")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => ({
     service_id: typeof search["service_id"] === "string" ? search["service_id"] : undefined,
+    motivo: search["motivo"] === "boletin" ? "boletin" : undefined,
   }),
   loader: async () => {
     const [company, services] = await Promise.all([fetchCompany(), fetchServices()]);
@@ -35,7 +41,10 @@ export const Route = createFileRoute("/contacto")({
 
 function ContactoPage() {
   const { company, services } = Route.useLoaderData();
-  const { service_id } = Route.useSearch();
+  const { service_id, motivo } = Route.useSearch();
+  const preset = motivo ? MOTIVOS[motivo] : null;
+  const defaultServiceId =
+    service_id ?? (preset ? services.find((s) => s.slug === preset.slug)?.id : undefined);
   const tel = company.phone ? `tel:${company.phone.replace(/\s+/g, "")}` : undefined;
   const mapSrc = company.address
     ? `https://maps.google.com/maps?q=${encodeURIComponent(company.address)}&z=15&output=embed`
@@ -71,7 +80,11 @@ function ContactoPage() {
 
       <section className="theme-light bg-surface py-16 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
-          <ContactForm services={services} defaultServiceId={service_id} />
+          <ContactForm
+            services={services}
+            defaultServiceId={defaultServiceId}
+            defaultMessage={preset?.message}
+          />
 
           <aside className="space-y-5">
             <div className="card-tech bg-canvas p-6">
