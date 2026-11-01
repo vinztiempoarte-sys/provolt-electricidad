@@ -65,8 +65,8 @@ export function CookieBanner() {
         <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
         <span>
           Usamos cookies técnicas necesarias para el funcionamiento del sitio. Si aceptas, también
-          usamos una cookie de Google Ads para medir si nuestros anuncios acaban en una llamada,
-          un WhatsApp o un formulario. Si rechazas, no se carga nada de Google. Nuestro contador de
+          usamos una cookie de Google Ads para medir si nuestros anuncios acaban en una llamada, un
+          WhatsApp o un formulario. Si rechazas, no se carga nada de Google. Nuestro contador de
           visitas no usa cookies ni datos personales.{" "}
           <a href="/politica-privacidad" className="font-medium text-electric hover:underline">
             Más información
