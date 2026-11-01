@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Cookie } from "lucide-react";
-import { COOKIE_CONSENT_KEY } from "@/lib/consent";
+import { COOKIE_CONSENT_KEY, COOKIE_CONSENT_VERSION } from "@/lib/consent";
+import { loadGoogleTag, readCookieConsent } from "@/lib/google-ads";
 
-/** Aviso de cookies en la primera visita. Hoy solo hay almacenamiento técnico (sesión). */
+/**
+ * Aviso de cookies en la primera visita (y cuando cambia la versión del aviso).
+ * Solo si se acepta se carga la etiqueta de medición de Google Ads.
+ */
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    try {
-      if (!window.localStorage.getItem(COOKIE_CONSENT_KEY)) setVisible(true);
-    } catch {
-      setVisible(true);
-    }
+    const consent = readCookieConsent();
+    if (!consent) setVisible(true);
+    else if (consent.choice === "aceptadas") loadGoogleTag();
   }, []);
 
   // En móvil el aviso ocupa todo el ancho: los botones flotantes se colocan encima de él
@@ -36,11 +38,16 @@ export function CookieBanner() {
     try {
       window.localStorage.setItem(
         COOKIE_CONSENT_KEY,
-        JSON.stringify({ choice, date: new Date().toISOString() }),
+        JSON.stringify({
+          choice,
+          version: COOKIE_CONSENT_VERSION,
+          date: new Date().toISOString(),
+        }),
       );
     } catch {
       // Sin almacenamiento disponible: se cierra igualmente para esta visita
     }
+    if (choice === "aceptadas") loadGoogleTag();
     setVisible(false);
   }
 
@@ -57,9 +64,10 @@ export function CookieBanner() {
       <p className="flex items-start gap-3 text-xs leading-relaxed text-text-muted sm:text-sm">
         <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
         <span>
-          Usamos cookies técnicas necesarias para el funcionamiento del sitio (sesión de usuario).
-          Contamos las visitas con un contador propio, sin cookies y sin datos personales. No usamos
-          cookies de analítica ni de publicidad de terceros.{" "}
+          Usamos cookies técnicas necesarias para el funcionamiento del sitio. Si aceptas, también
+          usamos una cookie de Google Ads para medir si nuestros anuncios acaban en una llamada, un
+          WhatsApp o un formulario. Si rechazas, no se carga nada de Google. Nuestro contador de
+          visitas no usa cookies ni datos personales.{" "}
           <a href="/politica-privacidad" className="font-medium text-electric hover:underline">
             Más información
           </a>
