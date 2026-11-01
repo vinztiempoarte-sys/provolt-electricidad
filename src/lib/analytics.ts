@@ -4,8 +4,11 @@
  * - No se guarda IP, ni navegador completo, ni ningún identificador de persona.
  * - Solo se envía: tipo de evento, ruta (sin parámetros), web de origen, utm de campaña,
  *   si viene de un anuncio de Google y la clase de dispositivo.
+ * - Además, si el visitante ha aceptado las cookies, se avisa a Google Ads de las conversiones
+ *   (llamada, WhatsApp, formulario): ver `google-ads.ts`.
  */
 import { supabase } from "@/integrations/supabase/client";
+import { trackAdsConversion } from "@/lib/google-ads";
 
 export type SiteEvent = "view" | "call" | "whatsapp" | "form";
 
@@ -61,6 +64,8 @@ export function trackEvent(event: SiteEvent, path?: string): void {
   const p = path ?? window.location.pathname;
   if (p.startsWith("/admin")) return;
   const a = captureAttribution();
+  // Conversión de Google Ads: solo con consentimiento de cookies (lo comprueba la propia función)
+  trackAdsConversion(event);
   try {
     void supabase
       .rpc("track_site_event", {
