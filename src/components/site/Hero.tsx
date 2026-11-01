@@ -18,24 +18,20 @@ export function Hero({ company }: { company: CompanyInfo }) {
   return (
     <section
       id="inicio"
-      className="theme-space relative isolate flex min-h-[100svh] items-center overflow-hidden bg-canvas pt-16"
+      className="theme-space relative isolate flex min-h-[100svh] items-start overflow-hidden sm:items-center bg-canvas pt-16"
     >
       <HeroVideo videos={HERO_VIDEOS} />
       <HeroEnergyLines />
-      <div className="relative mx-auto w-full max-w-7xl px-5 pt-6 pb-40 sm:px-8 sm:pt-24 sm:pb-36">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pt-8 pb-40 sm:px-8 sm:pt-16 sm:pb-36">
         <div className="max-w-3xl">
-          <p className="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-canvas/50 px-3 py-1 font-mono text-xs text-text backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-electric shadow-[0_0_8px_var(--provolt-accent)]" />
-            Urgencias 24 h · todos los días del año
-          </p>
-          <h1 className="mt-6 text-4xl leading-[1.05] font-bold text-text [text-shadow:0_2px_24px_rgb(0_0_0/0.45)] sm:text-6xl lg:text-7xl">
+          <h1 className="text-4xl leading-[1.05] font-bold text-text [text-shadow:0_2px_24px_rgb(0_0_0/0.45)] sm:text-6xl lg:text-7xl">
             Electricistas en <span className="text-electric text-glow">Valencia</span> y alrededores
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-text/85 sm:text-xl">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-text/85 sm:text-xl">
             <strong className="font-semibold text-text">{company.slogan}.</strong> Averías urgentes,
             boletines eléctricos, proyectos eléctricos e inspección OCA.
           </p>
-          <ul className="mt-8 flex flex-wrap gap-2.5" aria-label="Servicios principales">
+          <ul className="mt-6 flex flex-wrap gap-2.5" aria-label="Servicios principales">
             {PRIORITY.map((p) => (
               <li key={p.label}>
                 <Link
@@ -49,7 +45,7 @@ export function Hero({ company }: { company: CompanyInfo }) {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <a href={PHONE_TEL} className="btn-primary px-7 py-3.5 text-base">
               Llamar ahora
             </a>
