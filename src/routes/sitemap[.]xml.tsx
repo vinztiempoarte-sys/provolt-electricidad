@@ -22,21 +22,18 @@ function entryXml({ loc, lastmod, changefreq, priority }: Entry): string {
 
 /**
  * Sitemap dinámico: rutas estáticas conocidas + servicios, proyectos y artículos de blog
- * reales (leídos de Supabase). Se excluyen a propósito las rutas de cuenta/panel y /reservar,
+ * reales (los de blog, leídos de WordPress). Se excluyen a propósito las rutas de cuenta/panel y /reservar,
  * que ya llevan `noindex` y no son contenido indexable.
  */
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const { listPosts } = await import("@/lib/blog-wp.server");
         const [services, projects, posts] = await Promise.all([
           supabase.from("services").select("slug"),
           supabase.from("projects").select("slug, created_at"),
-          supabase
-            .from("blog_posts")
-            .select("slug, updated_at, published_at")
-            .eq("published", true)
-            .lte("published_at", new Date().toISOString()),
+          listPosts(),
         ]);
 
         const entries: Entry[] = [
@@ -60,7 +57,7 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "weekly",
             priority: "0.7",
           })),
-          ...(posts.data ?? []).map((post) => ({
+          ...posts.map((post) => ({
             loc: `${SITE_URL}/blog/${post.slug}`,
             lastmod: post.updated_at,
             changefreq: "monthly",

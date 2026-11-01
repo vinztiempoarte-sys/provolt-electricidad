@@ -17,7 +17,7 @@ export function formatLongDate(date: string | null): string | null {
 
 /** Minutos de lectura estimados (≈200 palabras por minuto). */
 export function readingMinutes(text: string): number {
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  const words = text.replace(/<[^>]*>/g, " ").trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 200));
 }
 

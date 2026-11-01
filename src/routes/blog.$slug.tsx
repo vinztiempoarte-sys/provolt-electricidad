@@ -6,7 +6,7 @@ import { formatLongDate, readingMinutes } from "@/lib/format";
 import { PageShell } from "@/components/site/PageShell";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
-import { RichText } from "@/components/site/RichText";
+import { RichHtml } from "@/components/site/RichHtml";
 import { SafeImage } from "@/components/site/SafeImage";
 import { PostCard } from "@/components/site/PostCard";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -130,7 +130,7 @@ function BlogPostPage() {
               />
             </div>
           ) : null}
-          <RichText text={post.content} lead />
+          <RichHtml html={post.content} />
           <div className="mt-12 border-t border-line pt-6">
             <Link to="/blog" className="text-sm font-medium text-electric hover:underline">
               ← Volver al blog

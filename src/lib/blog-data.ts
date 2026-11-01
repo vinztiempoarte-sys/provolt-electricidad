@@ -1,32 +1,22 @@
 import { notFound } from "@tanstack/react-router";
-import { supabase } from "@/integrations/supabase/client";
-import type { Tables } from "@/integrations/supabase/types";
+import { createServerFn } from "@tanstack/react-start";
+import type { BlogPost } from "@/lib/blog-wp.server";
 
-export type BlogPost = Tables<"blog_posts">;
+export type { BlogPost };
 
-function fail(error: { message: string }): never {
-  throw new Error(`No se pudieron cargar los artículos: ${error.message}`);
-}
+/** Los artículos viven en WordPress; el servidor los lee, limpia y cachea (ver blog-wp.server.ts). */
+const getPosts = createServerFn({ method: "GET" }).handler(async (): Promise<BlogPost[]> => {
+  const { listPosts } = await import("./blog-wp.server");
+  return listPosts();
+});
 
 /** Artículos publicados, del más reciente al más antiguo. */
 export async function fetchPosts(): Promise<BlogPost[]> {
-  const { data, error } = await supabase
-    .from("blog_posts")
-    .select("*")
-    .eq("published", true)
-    .order("published_at", { ascending: false });
-  if (error) fail(error);
-  return data ?? [];
+  return getPosts();
 }
 
 export async function fetchPostBySlug(slug: string): Promise<BlogPost> {
-  const { data, error } = await supabase
-    .from("blog_posts")
-    .select("*")
-    .eq("slug", slug)
-    .eq("published", true)
-    .maybeSingle();
-  if (error) fail(error);
-  if (!data) throw notFound();
-  return data;
+  const post = (await getPosts()).find((p) => p.slug === slug);
+  if (!post) throw notFound();
+  return post;
 }
