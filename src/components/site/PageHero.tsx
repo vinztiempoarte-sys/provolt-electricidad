@@ -11,6 +11,7 @@ export function PageHero({
   breadcrumb,
   videos,
   compact,
+  mobileTight,
   children,
 }: {
   kicker?: string;
@@ -21,6 +22,8 @@ export function PageHero({
   videos?: BackgroundVideo[];
   /** Sube el contenido: menos margen superior. */
   compact?: boolean;
+  /** Solo en móvil: reduce los espacios para que los botones de debajo se vean sin hacer scroll. */
+  mobileTight?: boolean;
   children?: ReactNode;
 }) {
   return (
@@ -31,12 +34,20 @@ export function PageHero({
         className={`relative mx-auto max-w-7xl px-5 sm:px-8 ${compact ? "pt-6 sm:pt-10" : videos ? "pt-6 sm:pt-24" : "pt-16 sm:pt-24"} ${videos ? "pb-32 sm:pb-40" : "pb-20 sm:pb-28"}`}
       >
         {breadcrumb}
-        {kicker ? <p className="mt-6 font-mono text-xs text-electric">{kicker}</p> : null}
-        <h1 className="mt-4 max-w-4xl text-4xl leading-[1.08] font-bold text-text sm:text-6xl">
+        {kicker ? (
+          <p className={`${mobileTight ? "mt-4 sm:mt-6" : "mt-6"} font-mono text-xs text-electric`}>
+            {kicker}
+          </p>
+        ) : null}
+        <h1
+          className={`${mobileTight ? "mt-3 sm:mt-4" : "mt-4"} max-w-4xl text-4xl leading-[1.08] font-bold text-text sm:text-6xl`}
+        >
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl">
+          <p
+            className={`${mobileTight ? "mt-4 sm:mt-6" : "mt-6"} max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl`}
+          >
             {subtitle}
           </p>
         ) : null}

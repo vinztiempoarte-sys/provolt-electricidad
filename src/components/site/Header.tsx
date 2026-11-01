@@ -21,6 +21,8 @@ export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // En averías urgentes la llamada es lo principal: botón rojo siempre visible, también en móvil
   const urgent = pathname === "/averias-urgentes";
+  // En boletines y proyectos la acción principal es pedir el boletín: botón siempre visible, también en móvil
+  const boletin = pathname === "/boletines-y-proyectos-electricos";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -58,6 +60,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {boletin ? (
+            <Link
+              to="/contacto"
+              className="btn-primary whitespace-nowrap px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+            >
+              Pedir boletín
+            </Link>
+          ) : null}
           {urgent ? (
             <a
               href={PHONE_TEL}

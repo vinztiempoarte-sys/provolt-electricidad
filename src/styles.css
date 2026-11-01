@@ -339,6 +339,37 @@
     }
   }
 
+  /* Botón de WhatsApp con el verde de la marca de WhatsApp */
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-token-full);
+    background: #25d366;
+    color: #04210f;
+    font-weight: 700;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .btn-whatsapp:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 28px rgb(37 211 102 / 0.55);
+    }
+  }
+
+  .btn-whatsapp:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .btn-whatsapp:focus-visible {
+    outline: 2px solid #25d366;
+    outline-offset: 2px;
+  }
+
   .btn-secondary {
     display: inline-flex;
     align-items: center;

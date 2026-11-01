@@ -30,7 +30,10 @@ function CallButtons({
   return (
     <div className={className ?? "flex flex-col gap-3 sm:flex-row sm:gap-4"}>
       {tel ? (
-        <a href={tel} className={`${urgent ? "btn-urgent" : "btn-accent"} px-7 py-3.5 text-base`}>
+        <a
+          href={tel}
+          className={`${urgent ? "btn-urgent" : "btn-accent"} px-7 py-3 text-base sm:py-3.5`}
+        >
           <Phone className="h-5 w-5" aria-hidden="true" />
           {urgent ? "Llamar ahora" : `Llamar al ${company.phone?.replace(/^\+34\s*/, "")}`}
         </a>
@@ -40,14 +43,14 @@ function CallButtons({
           href={`https://wa.me/${wa}?text=${encodeURIComponent(page.whatsapp)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-secondary px-7 py-3.5 text-base backdrop-blur"
+          className={`${urgent ? "btn-secondary backdrop-blur" : "btn-whatsapp"} px-7 py-3 text-base sm:py-3.5`}
         >
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
           WhatsApp
         </a>
       ) : null}
       {urgent ? null : (
-        <Link to="/contacto" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
+        <Link to="/contacto" className="btn-primary px-7 py-3 text-base sm:py-3.5">
           Pedir boletín
         </Link>
       )}
@@ -64,12 +67,13 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
         title={page.title}
         subtitle={page.subtitle}
         compact={page.path === "/averias-urgentes"}
+        mobileTight={page.path !== "/averias-urgentes"}
         videos={page.path === "/averias-urgentes" ? AVERIAS_VIDEOS : BOLETINES_VIDEOS}
       >
         <CallButtons
           company={company}
           page={page}
-          className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4"
+          className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         />
       </PageHero>
 
