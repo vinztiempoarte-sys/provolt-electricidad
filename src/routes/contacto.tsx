@@ -48,19 +48,24 @@ function ContactoPage() {
         kicker="// contacto"
         title="¿Tienes preguntas? ¡Háblanos!"
         subtitle={
-          <span className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-base">
-            {company.phone ? (
-              <a href={tel} className="hover:text-text">
-                {company.phone}
-              </a>
-            ) : null}
-            {company.email ? (
-              <a href={`mailto:${company.email}`} className="hover:text-text">
-                {company.email}
-              </a>
-            ) : null}
-            {company.schedule ? <span>{company.schedule}</span> : null}
-          </span>
+          <>
+            <span className="mb-5 block font-sans text-xl text-text">
+              Déjanos tus datos y te llamamos lo antes posible.
+            </span>
+            <span className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-base">
+              {company.phone ? (
+                <a href={tel} className="hover:text-text">
+                  {company.phone}
+                </a>
+              ) : null}
+              {company.email ? (
+                <a href={`mailto:${company.email}`} className="hover:text-text">
+                  {company.email}
+                </a>
+              ) : null}
+              {company.schedule ? <span>{company.schedule}</span> : null}
+            </span>
+          </>
         }
       />
 

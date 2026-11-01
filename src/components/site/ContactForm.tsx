@@ -34,7 +34,8 @@ const schema = z.object({
   phone: z
     .string()
     .trim()
-    .refine((v) => v === "" || PHONE_ES.test(v), "Introduce un teléfono español válido."),
+    .min(1, "El teléfono es obligatorio para poder llamarte.")
+    .refine((v) => PHONE_ES.test(v), "Introduce un teléfono español válido."),
   service_id: z.string(),
   message: z
     .string()
@@ -160,7 +161,7 @@ export function ContactForm({
           <Check className="h-8 w-8" strokeWidth={2.5} aria-hidden="true" />
         </span>
         <p className="mt-6 text-2xl font-semibold text-text">
-          ¡Gracias! Te contactaremos en menos de 24h.
+          ¡Gracias! Te llamaremos lo antes posible.
         </p>
         <button
           type="button"
@@ -213,7 +214,7 @@ export function ContactForm({
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-text">
-            Teléfono <span className="text-text-muted">(opcional)</span>
+            Teléfono <span className="text-danger">*</span>
           </label>
           <input
             id="phone"
