@@ -403,6 +403,8 @@ export function FloatingContact() {
     (serviceMatch?.loaderData as { service?: { title?: string } } | undefined)?.service?.title ??
     null;
   const number = whatsappNumber(company.data?.whatsapp);
+  const phone = company.data?.phone;
+  const tel = phone ? `tel:${phone.replace(/\s+/g, "")}` : undefined;
   const toggle = (p: Exclude<Panel, null>) => setOpen((cur) => (cur === p ? null : p));
 
   return (
@@ -415,19 +417,15 @@ export function FloatingContact() {
       inert={!(scrolled || open)}
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom, 0px))" }}
     >
-      <div className="relative">
-        {open === "callback" ? <CallbackPanel onClose={() => setOpen(null)} /> : null}
-        <button
-          type="button"
-          onClick={() => toggle("callback")}
-          aria-expanded={open === "callback"}
-          aria-controls="panel-llamada"
-          aria-label="Solicitar que te llamemos"
+      {tel ? (
+        <a
+          href={tel}
+          aria-label="Llamar ahora"
           className="flex h-12 w-12 items-center justify-center rounded-full sm:h-14 sm:w-14 bg-brand text-white shadow-lg shadow-brand/40 transition-[transform,box-shadow] duration-200 ease-out [@media(hover:hover)]:hover:scale-105 [@media(hover:hover)]:hover:shadow-brand/70 active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
         >
-          {open === "callback" ? <X className="h-6 w-6" /> : <PhoneCall className="h-6 w-6" />}
-        </button>
-      </div>
+          <PhoneCall className="h-6 w-6" aria-hidden="true" />
+        </a>
+      ) : null}
       {number ? (
         <div className="relative">
           {open === "whatsapp" ? (

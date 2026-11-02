@@ -43,7 +43,7 @@ function CallButtons({
           href={`https://wa.me/${wa}?text=${encodeURIComponent(page.whatsapp)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${urgent ? "btn-secondary backdrop-blur" : "btn-whatsapp"} px-7 py-3 text-base sm:py-3.5`}
+          className="btn-whatsapp px-7 py-3 text-base sm:py-3.5"
         >
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
           WhatsApp
