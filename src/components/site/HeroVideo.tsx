@@ -64,44 +64,46 @@ export function HeroVideo({ videos }: { videos: BackgroundVideo[] }) {
       <div className="absolute inset-0 bg-gradient-to-r from-canvas/90 via-canvas/45 to-canvas/15" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-canvas" />
 
-      {/* Indicador de clips */}
-      <div className="pointer-events-auto absolute right-5 bottom-8 left-5 mx-auto flex max-w-7xl gap-3 sm:right-8 sm:left-8">
-        {videos.map((video, i) => (
-          <button
-            key={video.id}
-            type="button"
-            tabIndex={-1}
-            onClick={() => setActive(i)}
-            className="group flex-1 text-left"
-          >
-            <span className="block h-0.5 overflow-hidden rounded-full bg-text/20">
-              <span
-                style={
-                  i === active && !reduced
-                    ? { animationDuration: `${video.durationMs ?? SLIDE_MS}ms` }
-                    : undefined
-                }
-                className={`block h-full bg-electric ${
-                  i === active
-                    ? reduced
-                      ? "w-full"
-                      : "animate-[hero-progress_7s_linear_forwards]"
-                    : i < active
-                      ? "w-full"
-                      : "w-0"
-                }`}
-              />
-            </span>
-            <span
-              className={`mt-2 hidden font-mono text-[0.6875rem] transition-colors sm:block ${
-                i === active ? "text-text" : "text-text-muted group-hover:text-text"
-              }`}
+      {/* Indicador de clips (solo si hay más de uno) */}
+      {videos.length > 1 ? (
+        <div className="pointer-events-auto absolute right-5 bottom-8 left-5 mx-auto flex max-w-7xl gap-3 sm:right-8 sm:left-8">
+          {videos.map((video, i) => (
+            <button
+              key={video.id}
+              type="button"
+              tabIndex={-1}
+              onClick={() => setActive(i)}
+              className="group flex-1 text-left"
             >
-              {video.label}
-            </span>
-          </button>
-        ))}
-      </div>
+              <span className="block h-0.5 overflow-hidden rounded-full bg-text/20">
+                <span
+                  style={
+                    i === active && !reduced
+                      ? { animationDuration: `${video.durationMs ?? SLIDE_MS}ms` }
+                      : undefined
+                  }
+                  className={`block h-full bg-electric ${
+                    i === active
+                      ? reduced
+                        ? "w-full"
+                        : "animate-[hero-progress_7s_linear_forwards]"
+                      : i < active
+                        ? "w-full"
+                        : "w-0"
+                  }`}
+                />
+              </span>
+              <span
+                className={`mt-2 hidden font-mono text-[0.6875rem] transition-colors sm:block ${
+                  i === active ? "text-text" : "text-text-muted group-hover:text-text"
+                }`}
+              >
+                {video.label}
+              </span>
+            </button>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }

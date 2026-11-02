@@ -66,13 +66,14 @@ export const TRUST_VIDEO: BackgroundVideo = {
   sources: [original(30567734)],
 };
 
-const byId = (ids: string[]) =>
-  ids.map((id) => HERO_VIDEOS.find((v) => v.id === id)).filter((v): v is BackgroundVideo => !!v);
-
 /** Clips de averías de día (claros). Distintos de los de la portada. */
 export const AVERIAS_VIDEOS: BackgroundVideo[] = [
   PROVOLT_SPOT,
-  { id: "operario-cuadro", label: "Operario trabajando en un cuadro eléctrico", sources: [original(30295544)] },
+  {
+    id: "operario-cuadro",
+    label: "Operario trabajando en un cuadro eléctrico",
+    sources: [original(30295544)],
+  },
   { id: "tecnico-pared", label: "Técnico revisando cableado", sources: [original(18780266)] },
   { id: "cuadro-interruptores", label: "Cuadro con interruptores", sources: [original(6520278)] },
 ];
@@ -84,5 +85,13 @@ export const AVERIAS_VIDEOS_NOCHE: BackgroundVideo[] = [
   { id: "tecnico-averia", label: "Técnico reparando", sources: [original(29731535)] },
 ];
 
-/** Vídeos de cabecera de boletines (mismos clips que la portada). */
-export const BOLETINES_VIDEOS = byId(["cuadro-electrico", "instalacion", "industria"]);
+/** Vídeo propio de boletines: animación técnica de 15 s (plano, comprobaciones y esquema unifilar). */
+export const BOLETINES_VIDEOS: BackgroundVideo[] = [
+  {
+    id: "boletines-tecnico",
+    label: "Plano, comprobaciones y análisis de la instalación",
+    sources: ["/videos/provolt-boletines.mp4"],
+    poster: "/videos/provolt-boletines-poster.jpg",
+    durationMs: 15000,
+  },
+];
