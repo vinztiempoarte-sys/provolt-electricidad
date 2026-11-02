@@ -13,6 +13,8 @@ export type BackgroundVideo = {
   poster?: string;
   /** Tiempo en pantalla en la rotación del hero (por defecto 7 s). */
   durationMs?: number;
+  /** Oscurece el fondo (0-1) para que el texto de encima se lea bien, p. ej. en vídeos con rótulos. */
+  dim?: number;
 };
 
 const original = (id: number) => `https://www.pexels.com/download/video/${id}/`;
@@ -93,5 +95,6 @@ export const BOLETINES_VIDEOS: BackgroundVideo[] = [
     sources: ["/videos/provolt-boletines.mp4"],
     poster: "/videos/provolt-boletines-poster.jpg",
     durationMs: 15000,
+    dim: 0.6,
   },
 ];

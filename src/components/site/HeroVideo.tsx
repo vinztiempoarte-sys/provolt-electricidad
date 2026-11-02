@@ -61,6 +61,12 @@ export function HeroVideo({ videos }: { videos: BackgroundVideo[] }) {
         </video>
       ))}
       {/* Capas para legibilidad del texto */}
+      {videos[active]?.dim ? (
+        <div
+          className="absolute inset-0 bg-canvas transition-opacity duration-[1400ms]"
+          style={{ opacity: videos[active]?.dim }}
+        />
+      ) : null}
       <div className="absolute inset-0 bg-gradient-to-r from-canvas/90 via-canvas/45 to-canvas/15" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-canvas" />
 
