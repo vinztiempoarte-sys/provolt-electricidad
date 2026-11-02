@@ -4,7 +4,6 @@ import { ServiceIcon } from "./icons";
 import { HeroEnergyLines } from "./HeroEnergyLines";
 import { HERO_VIDEOS } from "@/lib/media";
 import type { CompanyInfo } from "@/lib/home-data";
-import { PHONE_TEL } from "@/lib/business";
 
 /** Servicios prioritarios del negocio: acceso directo desde la portada. */
 const PRIORITY = [
@@ -46,10 +45,7 @@ export function Hero({ company }: { company: CompanyInfo }) {
             ))}
           </ul>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
-            <a href={PHONE_TEL} className="btn-primary px-7 py-3.5 text-base">
-              Llamar ahora
-            </a>
-            <Link to="/servicios" className="btn-secondary px-7 py-3.5 text-base backdrop-blur">
+            <Link to="/servicios" className="btn-primary px-7 py-3.5 text-base">
               Ver servicios
             </Link>
           </div>

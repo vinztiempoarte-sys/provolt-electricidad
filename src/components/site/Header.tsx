@@ -21,6 +21,8 @@ export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   // En averías urgentes la llamada es lo principal: botón rojo siempre visible, también en móvil
   const urgent = pathname === "/averias-urgentes";
+  // La página de inicio va limpia: sin botón de llamar en la cabecera
+  const home = pathname === "/";
   // En boletines y proyectos la acción principal es pedir el boletín: botón siempre visible, también en móvil
   const boletin = pathname === "/boletines-y-proyectos-electricos";
 
@@ -69,7 +71,7 @@ export function Header() {
               Pedir boletín
             </Link>
           ) : null}
-          {urgent ? (
+          {home ? null : urgent ? (
             <a
               href={PHONE_TEL}
               className="btn-urgent gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
@@ -119,15 +121,17 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li className="pt-3 sm:hidden">
-              <a
-                href={PHONE_TEL}
-                onClick={() => setOpen(false)}
-                className={`${urgent ? "btn-urgent" : "btn-primary"} w-full px-5 py-3 text-sm`}
-              >
-                Llamar ahora
-              </a>
-            </li>
+            {home ? null : (
+              <li className="pt-3 sm:hidden">
+                <a
+                  href={PHONE_TEL}
+                  onClick={() => setOpen(false)}
+                  className={`${urgent ? "btn-urgent" : "btn-primary"} w-full px-5 py-3 text-sm`}
+                >
+                  Llamar ahora
+                </a>
+              </li>
+            )}
             <MobileAccountLinks onNavigate={() => setOpen(false)} />
           </ul>
         </nav>

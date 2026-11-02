@@ -31,7 +31,7 @@ import {
 } from "@/lib/offline";
 
 /** Páginas públicas donde se muestran los botones flotantes (aparecen al hacer scroll). */
-const FLOATING_PATHS = ["/", "/averias-urgentes", "/boletines-y-proyectos-electricos"];
+const FLOATING_PATHS = ["/averias-urgentes", "/boletines-y-proyectos-electricos"];
 
 /** Zonas privadas donde no se muestran los widgets. */
 const PRIVATE_PREFIXES = ["/admin", "/cliente", "/empleado", "/proveedor"];
@@ -394,7 +394,7 @@ export function FloatingContact() {
   useEffect(() => setOpen(null), [pathname]);
 
   if (PRIVATE_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return null;
-  // De momento los botones flotantes solo se muestran en inicio, averías y boletines
+  // De momento los botones flotantes solo se muestran en averías y boletines
   if (!FLOATING_PATHS.includes(pathname)) return null;
 
   // Título real del servicio cuando estamos en /servicios/[slug]
