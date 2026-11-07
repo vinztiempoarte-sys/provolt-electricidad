@@ -547,19 +547,19 @@
 }
 
 /* Contenido de los artículos del blog (HTML de WordPress, ya limpiado en el servidor) */
-.wp-content { font-size: 1.125rem; line-height: 1.75; color: var(--color-text-muted); }
+.wp-content { font-size: 1.125rem; line-height: 1.75; color: var(--provolt-text-muted); }
 .wp-content > * + * { margin-top: 1.5rem; }
-.wp-content > p:first-child { font-size: 1.25rem; color: var(--color-text); }
-.wp-content h2 { margin-top: 2.5rem; font-size: 1.5rem; line-height: 1.3; font-weight: 600; color: var(--color-text); }
-.wp-content h3 { margin-top: 2rem; font-size: 1.25rem; line-height: 1.35; font-weight: 600; color: var(--color-text); }
-.wp-content h4 { font-size: 1.125rem; font-weight: 600; color: var(--color-text); }
-.wp-content a { color: var(--color-electric); text-decoration: underline; text-underline-offset: 2px; }
+.wp-content > p:first-child { font-size: 1.25rem; color: var(--provolt-text); }
+.wp-content h2 { margin-top: 2.5rem; font-size: 1.5rem; line-height: 1.3; font-weight: 600; color: var(--provolt-text); }
+.wp-content h3 { margin-top: 2rem; font-size: 1.25rem; line-height: 1.35; font-weight: 600; color: var(--provolt-text); }
+.wp-content h4 { font-size: 1.125rem; font-weight: 600; color: var(--provolt-text); }
+.wp-content a { color: var(--provolt-accent); text-decoration: underline; text-underline-offset: 2px; }
 .wp-content ul, .wp-content ol { padding-left: 1.5rem; }
 .wp-content ul { list-style: disc; }
 .wp-content ol { list-style: decimal; }
 .wp-content li + li { margin-top: 0.5rem; }
-.wp-content strong, .wp-content b { color: var(--color-text); font-weight: 600; }
+.wp-content strong, .wp-content b { color: var(--provolt-text); font-weight: 600; }
 .wp-content img { max-width: 100%; height: auto; border-radius: 0.5rem; }
-.wp-content blockquote { border-left: 3px solid var(--color-electric); padding-left: 1rem; font-style: italic; }
+.wp-content blockquote { border-left: 3px solid var(--provolt-accent); padding-left: 1rem; font-style: italic; }
 .wp-content table { width: 100%; border-collapse: collapse; font-size: 1rem; }
-.wp-content th, .wp-content td { border: 1px solid var(--color-line); padding: 0.5rem 0.75rem; text-align: left; }
+.wp-content th, .wp-content td { border: 1px solid var(--provolt-border); padding: 0.5rem 0.75rem; text-align: left; }
