@@ -58,33 +58,44 @@ export function CookieBanner() {
       ref={ref}
       role="region"
       aria-label="Aviso de cookies"
-      className="fixed right-3 left-3 z-40 max-w-md rounded-lg border border-line bg-surface p-4 text-text shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-300 motion-reduce:animate-none sm:right-auto sm:left-6 sm:p-5"
+      className="fixed right-3 left-3 z-40 max-w-md rounded-lg border border-line bg-surface p-3 text-text shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-300 motion-reduce:animate-none sm:right-auto sm:left-6 sm:p-5"
       style={{ bottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))" }}
     >
-      <p className="flex items-start gap-3 text-xs leading-relaxed text-text-muted sm:text-sm">
-        <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-electric" aria-hidden="true" />
+      <p className="flex items-start gap-3 text-xs leading-snug text-text-muted sm:text-sm sm:leading-relaxed">
+        <Cookie
+          className="mt-0.5 hidden h-5 w-5 shrink-0 text-electric sm:block"
+          aria-hidden="true"
+        />
         <span>
-          Usamos cookies técnicas necesarias para el funcionamiento del sitio. Si aceptas, también
-          usamos una cookie de Google Ads para medir si nuestros anuncios acaban en una llamada, un
-          WhatsApp o un formulario. Si rechazas, no se carga nada de Google. Nuestro contador de
-          visitas no usa cookies ni datos personales.{" "}
+          {/* Móvil: texto corto, para no tapar la página */}
+          <span className="sm:hidden">
+            Usamos cookies técnicas. Si aceptas, también una de Google Ads para medir llamadas y
+            WhatsApp; si rechazas, no se carga nada de Google.{" "}
+          </span>
+          {/* Pantallas grandes: texto completo */}
+          <span className="hidden sm:inline">
+            Usamos cookies técnicas necesarias para el funcionamiento del sitio. Si aceptas, también
+            usamos una cookie de Google Ads para medir si nuestros anuncios acaban en una llamada,
+            un WhatsApp o un formulario. Si rechazas, no se carga nada de Google. Nuestro contador
+            de visitas no usa cookies ni datos personales.{" "}
+          </span>
           <a href="/politica-privacidad" className="font-medium text-electric hover:underline">
             Más información
           </a>
         </span>
       </p>
-      <div className="mt-3 flex gap-2 sm:mt-4">
+      <div className="mt-2 flex gap-2 sm:mt-4">
         <button
           type="button"
           onClick={() => save("aceptadas")}
-          className="btn-primary px-4 py-2 text-sm whitespace-nowrap"
+          className="btn-primary flex-1 px-4 py-1.5 text-sm whitespace-nowrap sm:flex-none sm:py-2"
         >
           Aceptar
         </button>
         <button
           type="button"
           onClick={() => save("rechazadas_no_esenciales")}
-          className="btn-secondary px-3 py-2 text-sm sm:px-4"
+          className="btn-secondary flex-1 px-3 py-1.5 text-sm sm:flex-none sm:px-4 sm:py-2"
         >
           <span className="sm:hidden">Rechazar</span>
           <span className="hidden sm:inline">Rechazar no esenciales</span>
