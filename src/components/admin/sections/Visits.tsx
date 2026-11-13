@@ -87,7 +87,7 @@ export function VisitsDashboard() {
     <AdminPage
       kicker="// visitas"
       title="Visitas"
-      description="Contador propio: sin cookies y sin datos personales. Cuenta todas las visitas, hayan aceptado o no las cookies."
+      description="Contador propio: sin cookies y sin datos personales."
       action={
         <div className="flex gap-2" role="group" aria-label="Periodo">
           {PERIODS.map((p) => (

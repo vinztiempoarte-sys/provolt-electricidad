@@ -539,13 +539,6 @@
   }
 }
 
-/* Móvil: con el aviso de cookies abierto, los botones flotantes quedan por encima de él */
-@media (max-width: 639px) {
-  html[data-cookie-banner="open"] .floating-contact {
-    bottom: calc(var(--cookie-h, 9rem) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-  }
-}
-
 /* Contenido de los artículos del blog (HTML de WordPress, ya limpiado en el servidor) */
 .wp-content { font-size: 1.125rem; line-height: 1.75; color: var(--provolt-text-muted); }
 .wp-content > * + * { margin-top: 1.5rem; }

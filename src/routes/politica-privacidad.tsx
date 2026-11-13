@@ -106,11 +106,6 @@ function PrivacyPage() {
           Jitsi Meet, esos servicios son de terceros y se rigen por sus propias políticas de
           privacidad. Solo se activan si tú los utilizas.
         </p>
-        <p>
-          Si aceptas las cookies de medición, Google recibe la información de la conversión
-          descrita en el apartado 9 (consulta la política de privacidad de Google para saber cómo
-          la trata).
-        </p>
       </LegalSection>
 
       <LegalSection title="7. Tus derechos">
@@ -152,19 +147,11 @@ function PrivacyPage() {
 
       <LegalSection title="9. Cookies">
         <p>
-          Este sitio utiliza almacenamiento técnico necesario para su funcionamiento: la sesión de
-          usuario, tu preferencia sobre el aviso de cookies y, si pierdes la conexión al enviar un
-          formulario, una copia temporal de ese envío guardada en tu propio dispositivo, que se
-          borra en cuanto se completa.
-        </p>
-        <p>
-          Solo si aceptas en el aviso de cookies, cargamos la etiqueta de medición de conversiones
-          de Google Ads (Google). Sirve únicamente para saber si un anuncio nuestro ha acabado en
-          una llamada, un clic en WhatsApp o un formulario enviado. Puede guardar una cookie en tu
-          dispositivo y enviar a Google la información del clic en el anuncio y de la acción
-          realizada. No activamos analítica ni personalización de anuncios. Si rechazas, esa
-          etiqueta no se carga y no se envía nada a Google. Puedes cambiar tu decisión borrando los
-          datos de este sitio en tu navegador: el aviso volverá a aparecer.
+          Este sitio no utiliza cookies de publicidad, de analítica ni de seguimiento, ni carga
+          etiquetas de terceros para medirte. Solo usa almacenamiento técnico necesario para su
+          funcionamiento: la sesión de usuario y, si pierdes la conexión al enviar un formulario, una
+          copia temporal de ese envío guardada en tu propio dispositivo, que se borra en cuanto se
+          completa.
         </p>
         <p>
           Para saber cuántas personas visitan las páginas del sitio y cuántas llaman, escriben por
