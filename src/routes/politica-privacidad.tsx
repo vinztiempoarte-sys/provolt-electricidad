@@ -147,11 +147,16 @@ function PrivacyPage() {
 
       <LegalSection title="9. Cookies">
         <p>
-          Este sitio no utiliza cookies de publicidad, de analítica ni de seguimiento, ni carga
-          etiquetas de terceros para medirte. Solo usa almacenamiento técnico necesario para su
-          funcionamiento: la sesión de usuario y, si pierdes la conexión al enviar un formulario, una
-          copia temporal de ese envío guardada en tu propio dispositivo, que se borra en cuanto se
-          completa.
+          Este sitio usa almacenamiento técnico necesario para su funcionamiento: la sesión de
+          usuario y, si pierdes la conexión al enviar un formulario, una copia temporal de ese envío
+          guardada en tu propio dispositivo, que se borra en cuanto se completa.
+        </p>
+        <p>
+          Además, el sitio carga Google Tag Manager, un servicio de Google que sirve para medir si un
+          anuncio nuestro de Google Ads acaba en una llamada, un clic en WhatsApp o un formulario
+          enviado. Puede guardar cookies en tu dispositivo y enviar a Google información del clic en
+          el anuncio y de la acción realizada. Puedes bloquear o borrar estas cookies desde los
+          ajustes de tu navegador.
         </p>
         <p>
           Para saber cuántas personas visitan las páginas del sitio y cuántas llaman, escriben por
