@@ -24,7 +24,7 @@ export type LandingContent = {
   /** Mensaje de WhatsApp precargado. */
   whatsapp: string;
   /** Texto secundario bajo los botones de la portada (opcional). */
-  heroNote?: { text: string; linkLabel: string; href: string };
+  heroNote?: { title?: string; text: string; linkLabel: string; href: string };
 };
 
 /** Municipios que atiende el titular (zona de servicio: Valencia y alrededores). */
@@ -134,8 +134,9 @@ export const BOLETINES: LandingContent = {
   subtitle:
     "Gestionamos tu boletín eléctrico y el certificado de instalación eléctrica, con asesoramiento en todo el proceso para que cumpla la normativa y evites retrasos.",
   heroNote: {
-    text: "¿Necesitas también un proyecto eléctrico o inspecciones OCA?",
-    linkLabel: "Mira cómo lo hacemos",
+    title: "Proyectos eléctricos e inspecciones OCA",
+    text: "También redactamos proyectos eléctricos y coordinamos inspecciones OCA para locales, naves e instalaciones de mayor potencia.",
+    linkLabel: "Ver proyectos eléctricos e inspecciones OCA",
     href: "#proyecto",
   },
   blocks: [

@@ -92,12 +92,22 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
           className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         />
         {page.heroNote ? (
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-text-muted sm:text-base">
-            {page.heroNote.text}{" "}
-            <a href={page.heroNote.href} className="font-medium text-electric hover:underline">
+          <div className="mt-10 max-w-2xl sm:mt-14">
+            {page.heroNote.title ? (
+              <p className="text-2xl leading-tight font-bold text-text sm:text-3xl">
+                {page.heroNote.title}
+              </p>
+            ) : null}
+            <p className="mt-3 text-lg leading-relaxed text-text-muted sm:text-xl">
+              {page.heroNote.text}
+            </p>
+            <a
+              href={page.heroNote.href}
+              className="mt-3 inline-block text-lg font-medium text-electric hover:underline sm:text-xl"
+            >
               {page.heroNote.linkLabel}
             </a>
-          </p>
+          </div>
         ) : null}
       </PageHero>
 
