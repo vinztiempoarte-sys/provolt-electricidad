@@ -92,9 +92,9 @@ export const BOLETINES_VIDEOS: BackgroundVideo[] = [
   {
     id: "boletines-tecnico",
     label: "Plano, comprobaciones y análisis de la instalación",
-    sources: ["/videos/provolt-boletines.mp4"],
-    poster: "/videos/provolt-boletines-poster.jpg",
+    sources: ["/videos/provolt-boletines-claro.mp4"],
+    poster: "/videos/provolt-boletines-claro-poster.jpg",
     durationMs: 15000,
-    dim: 0.6,
+    dim: 0.25,
   },
 ];
