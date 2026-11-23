@@ -234,7 +234,7 @@ function LandingPageEn({ company, page }: { company: CompanyInfo; page: LandingC
               </SectionHeading>
             </Reveal>
             <ul className="mt-8 flex flex-wrap gap-2.5">
-              {MUNICIPIOS.map((m) => (
+              {MUNICIPIOS.filter((m) => m !== "Sagunto").map((m) => (
                 <li
                   key={m}
                   className="rounded-full border border-line bg-canvas px-4 py-2 text-sm text-text"
