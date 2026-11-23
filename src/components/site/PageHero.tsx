@@ -12,6 +12,7 @@ export function PageHero({
   videos,
   compact,
   mobileTight,
+  longTitle,
   children,
 }: {
   kicker?: string;
