@@ -120,7 +120,7 @@ export const AVERIAS_EN: LandingContentEn = {
     },
     {
       q: "Which areas do you cover?",
-      a: "Valencia city and the surrounding towns, such as Paiporta, Torrent, Paterna, Mislata, Alaquàs, Manises, Alboraya, Burjassot, Xirivella, Catarroja, Sagunto, Albal, Massanassa and Aldaia.",
+      a: "Valencia city and the surrounding towns, such as Paiporta, Torrent, Paterna, Mislata, Alaquàs, Manises, Alboraya, Burjassot, Xirivella, Catarroja, Albal, Massanassa and Aldaia.",
     },
   ],
   ctaTitle: "No power or an electrical fault? Contact us now",
