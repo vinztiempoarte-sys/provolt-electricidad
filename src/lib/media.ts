@@ -87,8 +87,20 @@ export const AVERIAS_VIDEOS_NOCHE: BackgroundVideo[] = [
   { id: "tecnico-averia", label: "Técnico reparando", sources: [original(29731535)] },
 ];
 
-/** Vídeo propio de boletines: animación técnica de 15 s (plano, comprobaciones y esquema unifilar). */
+/** Vídeo de boletines: electricista midiendo un cuadro eléctrico (generado con IA). La animación técnica anterior queda en BOLETINES_VIDEOS_ANIMACION. */
 export const BOLETINES_VIDEOS: BackgroundVideo[] = [
+  {
+    id: "boletines-electricista",
+    label: "Electricista comprobando un cuadro eléctrico",
+    sources: ["/videos/provolt-boletines-electricista.mp4"],
+    poster: "/videos/provolt-boletines-electricista-poster.jpg",
+    durationMs: 12000,
+    dim: 0.3,
+  },
+];
+
+/** Animación técnica anterior (plano, comprobaciones y osciloscopio), por si se quiere volver a ella. */
+export const BOLETINES_VIDEOS_ANIMACION: BackgroundVideo[] = [
   {
     id: "boletines-tecnico",
     label: "Plano, comprobaciones y análisis de la instalación",
