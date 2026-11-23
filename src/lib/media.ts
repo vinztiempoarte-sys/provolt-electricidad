@@ -87,11 +87,19 @@ export const AVERIAS_VIDEOS_NOCHE: BackgroundVideo[] = [
   { id: "tecnico-averia", label: "Técnico reparando", sources: [original(29731535)] },
 ];
 
-/** Vídeo de boletines: electricista midiendo un cuadro eléctrico (generado con IA). La animación técnica anterior queda en BOLETINES_VIDEOS_ANIMACION. */
+/** Vídeos de boletines, en secuencia: electricistas con un cuadro eléctrico y después las manos midiendo (generados con IA). */
 export const BOLETINES_VIDEOS: BackgroundVideo[] = [
   {
+    id: "boletines-operarios",
+    label: "Electricista comprobando un cuadro eléctrico con un compañero",
+    sources: ["/videos/provolt-boletines-operarios.mp4"],
+    poster: "/videos/provolt-boletines-operarios-poster.jpg",
+    durationMs: 12000,
+    dim: 0.3,
+  },
+  {
     id: "boletines-electricista",
-    label: "Electricista comprobando un cuadro eléctrico",
+    label: "Electricista midiendo un cuadro eléctrico",
     sources: ["/videos/provolt-boletines-electricista.mp4"],
     poster: "/videos/provolt-boletines-electricista-poster.jpg",
     durationMs: 12000,
