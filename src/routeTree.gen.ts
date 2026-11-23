@@ -36,6 +36,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ClienteDashboardRouteImport } from './routes/cliente.dashboard'
 import { Route as EmpleadoDashboardRouteImport } from './routes/empleado.dashboard'
+import { Route as EnEmergencyElectricianValenciaRouteImport } from './routes/en.emergency-electrician-valencia'
 import { Route as ProveedorDashboardRouteImport } from './routes/proveedor.dashboard'
 import { Route as ProyectosIndexRouteImport } from './routes/proyectos.index'
 import { Route as ProyectosSlugRouteImport } from './routes/proyectos.$slug'
@@ -193,6 +194,12 @@ const EmpleadoDashboardRoute = EmpleadoDashboardRouteImport.update({
   path: '/empleado/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnEmergencyElectricianValenciaRoute =
+  EnEmergencyElectricianValenciaRouteImport.update({
+    id: '/en/emergency-electrician-valencia',
+    path: '/en/emergency-electrician-valencia',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ProveedorDashboardRoute = ProveedorDashboardRouteImport.update({
   id: '/proveedor/dashboard',
   path: '/proveedor/dashboard',
@@ -322,6 +329,7 @@ export interface FileRoutesByFullPath {
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
+  '/en/emergency-electrician-valencia': typeof EnEmergencyElectricianValenciaRoute
   '/proveedor/dashboard': typeof ProveedorDashboardRoute
   '/proyectos/$slug': typeof ProyectosSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -370,6 +378,7 @@ export interface FileRoutesByTo {
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
+  '/en/emergency-electrician-valencia': typeof EnEmergencyElectricianValenciaRoute
   '/proveedor/dashboard': typeof ProveedorDashboardRoute
   '/proyectos/$slug': typeof ProyectosSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -420,6 +429,7 @@ export interface FileRoutesById {
   '/blog/$slug': typeof BlogSlugRoute
   '/cliente/dashboard': typeof ClienteDashboardRoute
   '/empleado/dashboard': typeof EmpleadoDashboardRoute
+  '/en/emergency-electrician-valencia': typeof EnEmergencyElectricianValenciaRoute
   '/proveedor/dashboard': typeof ProveedorDashboardRoute
   '/proyectos/$slug': typeof ProyectosSlugRoute
   '/servicios/$slug': typeof ServiciosSlugRoute
@@ -471,6 +481,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
+    | '/en/emergency-electrician-valencia'
     | '/proveedor/dashboard'
     | '/proyectos/$slug'
     | '/servicios/$slug'
@@ -519,6 +530,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
+    | '/en/emergency-electrician-valencia'
     | '/proveedor/dashboard'
     | '/proyectos/$slug'
     | '/servicios/$slug'
@@ -568,6 +580,7 @@ export interface FileRouteTypes {
     | '/blog/$slug'
     | '/cliente/dashboard'
     | '/empleado/dashboard'
+    | '/en/emergency-electrician-valencia'
     | '/proveedor/dashboard'
     | '/proyectos/$slug'
     | '/servicios/$slug'
@@ -613,6 +626,7 @@ export interface RootRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
   ClienteDashboardRoute: typeof ClienteDashboardRoute
   EmpleadoDashboardRoute: typeof EmpleadoDashboardRoute
+  EnEmergencyElectricianValenciaRoute: typeof EnEmergencyElectricianValenciaRoute
   ProveedorDashboardRoute: typeof ProveedorDashboardRoute
   ProyectosSlugRoute: typeof ProyectosSlugRoute
   ServiciosSlugRoute: typeof ServiciosSlugRoute
@@ -810,6 +824,13 @@ declare module '@tanstack/react-router' {
       path: '/empleado/dashboard'
       fullPath: '/empleado/dashboard'
       preLoaderRoute: typeof EmpleadoDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/emergency-electrician-valencia': {
+      id: '/en/emergency-electrician-valencia'
+      path: '/en/emergency-electrician-valencia'
+      fullPath: '/en/emergency-electrician-valencia'
+      preLoaderRoute: typeof EnEmergencyElectricianValenciaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/proveedor/dashboard': {
@@ -1026,6 +1047,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlogSlugRoute: BlogSlugRoute,
   ClienteDashboardRoute: ClienteDashboardRoute,
   EmpleadoDashboardRoute: EmpleadoDashboardRoute,
+  EnEmergencyElectricianValenciaRoute: EnEmergencyElectricianValenciaRoute,
   ProveedorDashboardRoute: ProveedorDashboardRoute,
   ProyectosSlugRoute: ProyectosSlugRoute,
   ServiciosSlugRoute: ServiciosSlugRoute,
