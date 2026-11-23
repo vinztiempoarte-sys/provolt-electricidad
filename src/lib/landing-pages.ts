@@ -130,7 +130,7 @@ export const BOLETINES: LandingContent = {
   serviceName: "Boletines y proyectos eléctricos",
   crumb: "Boletines y proyectos eléctricos",
   kicker: "// boletín eléctrico",
-  title: "Boletín eléctrico y certificado de instalación en Valencia",
+  title: "Boletín eléctrico - certificado de instalación eléctrica en Valencia y provincia",
   subtitle:
     "Gestionamos tu boletín eléctrico y el certificado de instalación eléctrica, con asesoramiento en todo el proceso para que cumpla la normativa y evites retrasos.",
   heroNote: {
