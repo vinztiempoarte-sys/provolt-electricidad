@@ -134,7 +134,7 @@ export const BOLETINES: LandingContent = {
   subtitle:
     "Gestionamos tu boletín eléctrico y el certificado de instalación eléctrica, con asesoramiento en todo el proceso para que cumpla la normativa y evites retrasos.",
   heroNote: {
-    text: "¿Necesitas también un proyecto eléctrico o la inspección de una OCA?",
+    text: "¿Necesitas también un proyecto eléctrico o inspecciones OCA?",
     linkLabel: "Mira cómo lo hacemos",
     href: "#proyecto",
   },
@@ -161,7 +161,7 @@ export const BOLETINES: LandingContent = {
         { title: "Reformas integrales y obra nueva", text: "Planificación de circuitos, protecciones y potencia necesaria." },
         { title: "Locales y naves", text: "Instalaciones adaptadas a tu actividad y a la normativa." },
         { title: "Instalaciones de mayor potencia", text: "Con la documentación técnica que exija cada caso." },
-        { title: "Inspección de una OCA", text: "Si tu instalación la necesita, preparamos la instalación y coordinamos la visita." },
+        { title: "Inspecciones OCA", text: "Si tu instalación la necesita, preparamos la instalación y coordinamos la visita." },
       ],
     },
     {
@@ -200,7 +200,7 @@ export const BOLETINES: LandingContent = {
       a: "Depende del tipo de instalación y de los plazos de la distribuidora. Te lo indicamos cuando revisamos tu caso.",
     },
     {
-      q: "¿Mi instalación necesita inspección de una OCA?",
+      q: "¿Mi instalación necesita inspecciones OCA?",
       a: "Algunas instalaciones deben pasar una inspección inicial o periódica de un Organismo de Control Autorizado. Te decimos si es tu caso, preparamos la instalación y coordinamos la visita.",
     },
     {
