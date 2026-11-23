@@ -128,7 +128,7 @@ export const BOLETINES: LandingContent = {
   metaDescription:
     "Gestionamos boletines eléctricos, certificados de instalación y proyectos eléctricos para reformas y obra nueva en Valencia y alrededores.",
   serviceName: "Boletines y proyectos eléctricos",
-  crumb: "Boletines eléctricos",
+  crumb: "Boletines y proyectos eléctricos",
   kicker: "// boletín eléctrico",
   title: "Boletín eléctrico y certificado de instalación en Valencia",
   subtitle:
