@@ -27,15 +27,36 @@ function CallButtons({
   const tel = telHref(company.phone);
   const wa = whatsappNumber(company.whatsapp ?? company.phone);
   const urgent = page.path === "/averias-urgentes";
+  if (!urgent) {
+    // Boletines: "Pedir boletín" llama por teléfono y va primero; el WhatsApp pide el boletín.
+    return (
+      <div className={className ?? "flex flex-col gap-3 sm:flex-row sm:gap-4"}>
+        {tel ? (
+          <a href={tel} className="btn-primary px-7 py-3 text-base sm:py-3.5">
+            <Phone className="h-5 w-5" aria-hidden="true" />
+            Pedir boletín
+          </a>
+        ) : null}
+        {wa ? (
+          <a
+            href={`https://wa.me/${wa}?text=${encodeURIComponent(page.whatsapp)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-whatsapp px-7 py-3 text-base sm:py-3.5"
+          >
+            <MessageCircle className="h-5 w-5" aria-hidden="true" />
+            Pedir boletín por WhatsApp
+          </a>
+        ) : null}
+      </div>
+    );
+  }
   return (
     <div className={className ?? "flex flex-col gap-3 sm:flex-row sm:gap-4"}>
       {tel ? (
-        <a
-          href={tel}
-          className={`${urgent ? "btn-urgent" : "btn-accent"} px-7 py-3 text-base sm:py-3.5`}
-        >
+        <a href={tel} className="btn-urgent px-7 py-3 text-base sm:py-3.5">
           <Phone className="h-5 w-5" aria-hidden="true" />
-          {urgent ? "Llamar ahora" : `Llamar al ${company.phone?.replace(/^\+34\s*/, "")}`}
+          Llamar ahora
         </a>
       ) : null}
       {wa ? (
@@ -49,15 +70,6 @@ function CallButtons({
           WhatsApp
         </a>
       ) : null}
-      {urgent ? null : (
-        <Link
-          to="/contacto"
-          search={{ motivo: "boletin" }}
-          className="btn-primary px-7 py-3 text-base sm:py-3.5"
-        >
-          Pedir boletín
-        </Link>
-      )}
     </div>
   );
 }
@@ -79,6 +91,14 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
           page={page}
           className="mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4"
         />
+        {page.heroNote ? (
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-text-muted sm:text-base">
+            {page.heroNote.text}{" "}
+            <a href={page.heroNote.href} className="font-medium text-electric hover:underline">
+              {page.heroNote.linkLabel}
+            </a>
+          </p>
+        ) : null}
       </PageHero>
 
       {page.blocks.map((block, bi) => (

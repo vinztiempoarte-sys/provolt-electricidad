@@ -63,15 +63,15 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           {boletin ? (
-            <Link
-              to="/contacto"
-              search={{ motivo: "boletin" }}
-              className="btn-primary whitespace-nowrap px-3 py-1.5 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+            <a
+              href={PHONE_TEL}
+              className="btn-primary gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"
             >
+              <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
               Pedir boletín
-            </Link>
+            </a>
           ) : null}
-          {home ? null : urgent ? (
+          {home || boletin ? null : urgent ? (
             <a
               href={PHONE_TEL}
               className="btn-urgent gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm"

@@ -23,6 +23,8 @@ export type LandingContent = {
   ctaTitle: string;
   /** Mensaje de WhatsApp precargado. */
   whatsapp: string;
+  /** Texto secundario bajo los botones de la portada (opcional). */
+  heroNote?: { text: string; linkLabel: string; href: string };
 };
 
 /** Municipios que atiende el titular (zona de servicio: Valencia y alrededores). */
@@ -126,11 +128,16 @@ export const BOLETINES: LandingContent = {
   metaDescription:
     "Gestionamos boletines eléctricos, certificados de instalación y proyectos eléctricos para reformas y obra nueva en Valencia y alrededores.",
   serviceName: "Boletines y proyectos eléctricos",
-  crumb: "Boletines y proyectos eléctricos",
-  kicker: "// boletines y proyectos",
-  title: "Boletines y proyectos eléctricos en Valencia",
+  crumb: "Boletines eléctricos",
+  kicker: "// boletín eléctrico",
+  title: "Boletín eléctrico y certificado de instalación en Valencia",
   subtitle:
-    "Gestionamos el boletín eléctrico, el certificado de instalación y los proyectos eléctricos para reformas y obra nueva, con asesoramiento en todo el proceso para que cumpla la normativa y evites retrasos.",
+    "Gestionamos tu boletín eléctrico y el certificado de instalación eléctrica, con asesoramiento en todo el proceso para que cumpla la normativa y evites retrasos.",
+  heroNote: {
+    text: "¿Necesitas también un proyecto eléctrico o la inspección de una OCA?",
+    linkLabel: "Mira cómo lo hacemos",
+    href: "#proyecto",
+  },
   blocks: [
     {
       id: "boletin",
@@ -202,5 +209,5 @@ export const BOLETINES: LandingContent = {
     },
   ],
   ctaTitle: "¿Necesitas un boletín o un proyecto eléctrico?",
-  whatsapp: "Hola, necesito información sobre un boletín o un proyecto eléctrico.",
+  whatsapp: "Hola, quiero pedir un boletín eléctrico.",
 };
