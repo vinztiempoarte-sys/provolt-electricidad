@@ -34,7 +34,7 @@ function CallButtons({
         {tel ? (
           <a href={tel} className="btn-primary px-7 py-3 text-base sm:py-3.5">
             <Phone className="h-5 w-5" aria-hidden="true" />
-            Pedir boletín
+            Llamar al técnico
           </a>
         ) : null}
         {wa ? (
@@ -84,6 +84,7 @@ export function LandingPage({ company, page }: { company: CompanyInfo; page: Lan
         subtitle={page.subtitle}
         compact={page.path === "/averias-urgentes"}
         mobileTight={page.path !== "/averias-urgentes"}
+        longTitle={page.path !== "/averias-urgentes"}
         videos={page.path === "/averias-urgentes" ? AVERIAS_VIDEOS : BOLETINES_VIDEOS}
       >
         <CallButtons

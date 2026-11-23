@@ -24,6 +24,8 @@ export function PageHero({
   compact?: boolean;
   /** Solo en móvil: reduce los espacios para que los botones de debajo se vean sin hacer scroll. */
   mobileTight?: boolean;
+  /** Título largo: letra algo más pequeña y más ancho para que ocupe pocas líneas. */
+  longTitle?: boolean;
   children?: ReactNode;
 }) {
   return (
@@ -40,7 +42,7 @@ export function PageHero({
           </p>
         ) : null}
         <h1
-          className={`${mobileTight ? "mt-3 sm:mt-4" : "mt-4"} max-w-4xl text-4xl leading-[1.08] font-bold text-text sm:text-6xl`}
+          className={`${mobileTight ? "mt-3 sm:mt-4" : "mt-4"} ${longTitle ? "max-w-6xl text-3xl sm:text-5xl" : "max-w-4xl text-4xl sm:text-6xl"} leading-[1.08] font-bold text-text`}
         >
           {title}
         </h1>
